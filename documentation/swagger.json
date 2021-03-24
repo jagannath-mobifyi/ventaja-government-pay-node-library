@@ -252,12 +252,12 @@
                 }
             }
         },
-        "/sss/contribution/validate": {
+        "/sss-payment/contribution/searchprnbymember/validate": {
             "post":{
                 "tags":[
                     "SSS Payment"
                 ],
-                "summary":"Validate transaction",
+                "summary":"Search Prn By Member Id - validate",
                 "parameters":[
                     {
                         "name":"data",
@@ -265,17 +265,7 @@
                         "schema":{
                             "required":["*"],
                             "properties":{
-                                "memberId":{"type": "string", "example": ""},
-                                "lastName":{"type": "string", "example": ""},
-                                "firstName":{"type": "string", "example": ""},
-                                "middleName":{"type": "string", "example": ""},
-                                "birthDate":{"type": "string", "example": ""},
-                                "mobileNumber":{"type": "string", "example": ""},
-                                "emailAddress":{"type": "string", "example": ""},
-                                "memberType":{"type": "number", "example": ""},
-                                "amount":{"type": "number", "example": ""},
-                                "loanNumber":{"type": "number", "example": ""},
-                                "agentRefNo":{"type": "string", "example": ""}
+                                "memberId":{"type": "string", "example": "010501525338"}
                             }
                         }
                     }
@@ -289,8 +279,1085 @@
                             "properties":{
                                 "status": "200",
                                 "message": "success",
-                                "statusCode": "",
-                                "data": {}
+                                "data": {
+                                    "statusCode": "",
+                                    "data": "∂∂"
+                                }
+                            }
+                        }
+                    },
+                    "400":{
+                        "schema":{
+                            "$ref":"#/definitions/400"
+                        }
+                    },
+                    "500":{
+                        "schema":{
+                            "$ref":"#/definitions/500"
+                        }
+                    }
+                }
+            }
+        },
+        "/sss-payment/contribution/searchprnbymember/process": {
+            "post":{
+                "tags":[
+                    "SSS Payment"
+                ],
+                "summary":"Search Prn By Member Id - process",
+                "parameters":[
+                    {
+                        "name":"data",
+                        "in":"body",
+                        "schema":{
+                            "required":["*"],
+                            "properties":{
+                                "memberId":{"type": "string", "example": "010501525338"}
+                            }
+                        }
+                    }
+                ],
+                "produces":[
+                        "application/json"
+                    ],
+                "responses":{
+                    "200":{
+                        "schema":{
+                            "properties":{
+                                "status": "200",
+                                "message": "success",
+                                "data": {
+                                    "statusCode": "",
+                                    "data": "∂∂"
+                                }
+                            }
+                        }
+                    },
+                    "400":{
+                        "schema":{
+                            "$ref":"#/definitions/400"
+                        }
+                    },
+                    "500":{
+                        "schema":{
+                            "$ref":"#/definitions/500"
+                        }
+                    }
+                }
+            }
+        },
+        "/sss-payment/contribution/searchbyprn/validate": {
+            "post":{
+                "tags":[
+                    "SSS Payment"
+                ],
+                "summary":"Search Prn By prn number - validate",
+                "parameters":[
+                    {
+                        "name":"data",
+                        "in":"body",
+                        "schema":{
+                            "required":["*"],
+                            "properties":{
+                                "prn":{"type": "string", "example": "010501525338"}
+                            }
+                        }
+                    }
+                ],
+                "produces":[
+                        "application/json"
+                    ],
+                "responses":{
+                    "200":{
+                        "schema":{
+                            "properties":{
+                                "status": "200",
+                                "message": "success",
+                                "data": {
+                                    "statusCode": "",
+                                    "data": "∂∂"
+                                }
+                            }
+                        }
+                    },
+                    "400":{
+                        "schema":{
+                            "$ref":"#/definitions/400"
+                        }
+                    },
+                    "500":{
+                        "schema":{
+                            "$ref":"#/definitions/500"
+                        }
+                    }
+                }
+            }
+        },
+        "/sss-payment/contribution/searchbyprn/process": {
+            "post":{
+                "tags":[
+                    "SSS Payment"
+                ],
+                "summary":"Search Prn By prn number - process",
+                "parameters":[
+                    {
+                        "name":"data",
+                        "in":"body",
+                        "schema":{
+                            "required":["*"],
+                            "properties":{
+                                "prn":{"type": "string", "example": "010501525338"}
+                            }
+                        }
+                    }
+                ],
+                "produces":[
+                        "application/json"
+                    ],
+                "responses":{
+                    "200":{
+                        "schema":{
+                            "properties":{
+                                "status": "200",
+                                "message": "success",
+                                "data": {
+                                    "statusCode": "",
+                                    "data": "∂∂"
+                                }
+                            }
+                        }
+                    },
+                    "400":{
+                        "schema":{
+                            "$ref":"#/definitions/400"
+                        }
+                    },
+                    "500":{
+                        "schema":{
+                            "$ref":"#/definitions/500"
+                        }
+                    }
+                }
+            }
+        },
+        "/sss-payment/contribution/createandpay/validate": {
+            "post":{
+                "tags":[
+                    "SSS Payment"
+                ],
+                "summary":"Create and pay new prn - validate",
+                "parameters":[
+                    {
+                        "name":"data",
+                        "in":"body",
+                        "schema":{
+                            "required":["*"],
+                            "properties":{
+                                "memberId": {"type" : "string", "example": ""},
+                                "lastName": {"type" : "string", "example": ""},
+                                "firstName": {"type" : "string", "example": ""},
+                                "middleName": {"type" : "string", "example": ""},
+                                "birthDate": {"type" : "string", "example": ""},
+                                "mobileNumber": {"type" : "string", "example": ""},
+                                "emailAddress": {"type" : "string", "example": ""},
+                                "memberType": {"type" : "number", "example": ""},
+                                "amount": {"type" : "number", "example": ""},
+                                "startYear": {"type" : "number", "example": ""},
+                                "startMonth": {"type" : "number", "example": ""},
+                                "endYear": {"type" : "number", "example": ""},
+                                "endMonth": {"type" : "number", "example": ""},
+                                "flexiFund": {"type" : "number", "example": ""},
+                                "agentRefNo": {"type" : "string", "example": ""}
+                            }
+                        }
+                    }
+                ],
+                "produces":[
+                        "application/json"
+                    ],
+                "responses":{
+                    "200":{
+                        "schema":{
+                            "properties":{
+                                "status": "200",
+                                "message": "success",
+                                "data": {
+                                    "statusCode": "",
+                                    "data": ""
+                                }
+                            }
+                        }
+                    },
+                    "400":{
+                        "schema":{
+                            "$ref":"#/definitions/400"
+                        }
+                    },
+                    "500":{
+                        "schema":{
+                            "$ref":"#/definitions/500"
+                        }
+                    }
+                }
+            }
+        },
+        "/sss-payment/contribution/createandpay/process": {
+            "post":{
+                "tags":[
+                    "SSS Payment"
+                ],
+                "summary":"Create and pay new prn - process",
+                "parameters":[
+                    {
+                        "name":"data",
+                        "in":"body",
+                        "schema":{
+                            "required":["*"],
+                            "properties":{
+                                "memberId": {"type" : "string", "example": ""},
+                                "lastName": {"type" : "string", "example": ""},
+                                "firstName": {"type" : "string", "example": ""},
+                                "middleName": {"type" : "string", "example": ""},
+                                "birthDate": {"type" : "string", "example": ""},
+                                "mobileNumber": {"type" : "string", "example": ""},
+                                "emailAddress": {"type" : "string", "example": ""},
+                                "memberType": {"type" : "number", "example": ""},
+                                "amount": {"type" : "number", "example": ""},
+                                "startYear": {"type" : "number", "example": ""},
+                                "startMonth": {"type" : "number", "example": ""},
+                                "endYear": {"type" : "number", "example": ""},
+                                "endMonth": {"type" : "number", "example": ""},
+                                "flexiFund": {"type" : "number", "example": ""},
+                                "agentRefNo": {"type" : "string", "example": ""}
+                            }
+                        }
+                    }
+                ],
+                "produces":[
+                        "application/json"
+                    ],
+                "responses":{
+                    "200":{
+                        "schema":{
+                            "properties":{
+                                "status": "200",
+                                "message": "success",
+                                "data": {
+                                    "statusCode": "",
+                                    "data": ""
+                                }
+                            }
+                        }
+                    },
+                    "400":{
+                        "schema":{
+                            "$ref":"#/definitions/400"
+                        }
+                    },
+                    "500":{
+                        "schema":{
+                            "$ref":"#/definitions/500"
+                        }
+                    }
+                }
+            }
+        },
+        "/sss-payment/contribution/payforprn/validate": {
+            "post":{
+                "tags":[
+                    "SSS Payment"
+                ],
+                "summary":"Pay for prn - validate",
+                "parameters":[
+                    {
+                        "name":"data",
+                        "in":"body",
+                        "schema":{
+                            "required":["*"],
+                            "properties":{
+                                "prn": {"type" : "string", "example": ""},
+                                "agentRefNo": {"type" : "string", "example": ""}
+                            }
+                        }
+                    }
+                ],
+                "produces":[
+                        "application/json"
+                    ],
+                "responses":{
+                    "200":{
+                        "schema":{
+                            "properties":{
+                                "status": "200",
+                                "message": "success",
+                                "data": {
+                                    "statusCode": "",
+                                    "data": ""
+                                }
+                            }
+                        }
+                    },
+                    "400":{
+                        "schema":{
+                            "$ref":"#/definitions/400"
+                        }
+                    },
+                    "500":{
+                        "schema":{
+                            "$ref":"#/definitions/500"
+                        }
+                    }
+                }
+            }
+        },
+        "/sss-payment/contribution/payforprn/process": {
+            "post":{
+                "tags":[
+                    "SSS Payment"
+                ],
+                "summary":"Pay for prn - process",
+                "parameters":[
+                    {
+                        "name":"data",
+                        "in":"body",
+                        "schema":{
+                            "required":["*"],
+                            "properties":{
+                                "prn": {"type" : "string", "example": ""},
+                                "agentRefNo": {"type" : "string", "example": ""}
+                            }
+                        }
+                    }
+                ],
+                "produces":[
+                        "application/json"
+                    ],
+                "responses":{
+                    "200":{
+                        "schema":{
+                            "properties":{
+                                "status": "200",
+                                "message": "success",
+                                "data": {
+                                    "statusCode": "",
+                                    "data": ""
+                                }
+                            }
+                        }
+                    },
+                    "400":{
+                        "schema":{
+                            "$ref":"#/definitions/400"
+                        }
+                    },
+                    "500":{
+                        "schema":{
+                            "$ref":"#/definitions/500"
+                        }
+                    }
+                }
+            }
+        },
+        "/sss-payment/short-term-loan/searchbyrtplprn/validate": {
+            "post":{
+                "tags":[
+                    "SSS Payment"
+                ],
+                "summary":"search by rtpl prn - validate",
+                "parameters":[
+                    {
+                        "name":"data",
+                        "in":"body",
+                        "schema":{
+                            "required":["*"],
+                            "properties":{
+                                "prn": {"type" : "string", "example": ""}
+                            }
+                        }
+                    }
+                ],
+                "produces":[
+                        "application/json"
+                    ],
+                "responses":{
+                    "200":{
+                        "schema":{
+                            "properties":{
+                                "status": "200",
+                                "message": "success",
+                                "data": {
+                                    "statusCode": "",
+                                    "data": ""
+                                }
+                            }
+                        }
+                    },
+                    "400":{
+                        "schema":{
+                            "$ref":"#/definitions/400"
+                        }
+                    },
+                    "500":{
+                        "schema":{
+                            "$ref":"#/definitions/500"
+                        }
+                    }
+                }
+            }
+        },
+        "/sss-payment/short-term-loan/searchbyrtplprn/process": {
+            "post":{
+                "tags":[
+                    "SSS Payment"
+                ],
+                "summary":"search by rtpl prn - process",
+                "parameters":[
+                    {
+                        "name":"data",
+                        "in":"body",
+                        "schema":{
+                            "required":["*"],
+                            "properties":{
+                                "prn": {"type" : "string", "example": ""}
+                            }
+                        }
+                    }
+                ],
+                "produces":[
+                        "application/json"
+                    ],
+                "responses":{
+                    "200":{
+                        "schema":{
+                            "properties":{
+                                "status": "200",
+                                "message": "success",
+                                "data": {
+                                    "statusCode": "",
+                                    "data": ""
+                                }
+                            }
+                        }
+                    },
+                    "400":{
+                        "schema":{
+                            "$ref":"#/definitions/400"
+                        }
+                    },
+                    "500":{
+                        "schema":{
+                            "$ref":"#/definitions/500"
+                        }
+                    }
+                }
+            }
+        },
+        "/sss-payment/short-term-loan/payforrtplprn/validate": {
+            "post":{
+                "tags":[
+                    "SSS Payment"
+                ],
+                "summary":"pay for rtpl prn - validate",
+                "parameters":[
+                    {
+                        "name":"data",
+                        "in":"body",
+                        "schema":{
+                            "required":["*"],
+                            "properties":{
+                                "prn": {"type" : "string", "example": ""},
+                                "agentRefNo": {"type" : "string", "example": ""}
+                            }
+                        }
+                    }
+                ],
+                "produces":[
+                        "application/json"
+                    ],
+                "responses":{
+                    "200":{
+                        "schema":{
+                            "properties":{
+                                "status": "200",
+                                "message": "success",
+                                "data": {
+                                    "statusCode": "",
+                                    "data": ""
+                                }
+                            }
+                        }
+                    },
+                    "400":{
+                        "schema":{
+                            "$ref":"#/definitions/400"
+                        }
+                    },
+                    "500":{
+                        "schema":{
+                            "$ref":"#/definitions/500"
+                        }
+                    }
+                }
+            }
+        },
+        "/sss-payment/short-term-loan/payforrtplprn/process": {
+            "post":{
+                "tags":[
+                    "SSS Payment"
+                ],
+                "summary":"pay for rtpl prn - process",
+                "parameters":[
+                    {
+                        "name":"data",
+                        "in":"body",
+                        "schema":{
+                            "required":["*"],
+                            "properties":{
+                                "prn": {"type" : "string", "example": ""},
+                                "agentRefNo": {"type" : "string", "example": ""}
+                            }
+                        }
+                    }
+                ],
+                "produces":[
+                        "application/json"
+                    ],
+                "responses":{
+                    "200":{
+                        "schema":{
+                            "properties":{
+                                "status": "200",
+                                "message": "success",
+                                "data": {
+                                    "statusCode": "",
+                                    "data": ""
+                                }
+                            }
+                        }
+                    },
+                    "400":{
+                        "schema":{
+                            "$ref":"#/definitions/400"
+                        }
+                    },
+                    "500":{
+                        "schema":{
+                            "$ref":"#/definitions/500"
+                        }
+                    }
+                }
+            }
+        },
+        "/sss-payment/real-estate-loan/validate": {
+            "post":{
+                "tags":[
+                    "SSS Payment"
+                ],
+                "summary":"Real estate loan - validate",
+                "parameters":[
+                    {
+                        "name":"data",
+                        "in":"body",
+                        "schema":{
+                            "required":["*"],
+                            "properties":{
+                                "memberId": { "type": "string", "example":""},
+                                "lastName": { "type": "string", "example":""},
+                                "firstName": { "type": "string", "example":""},
+                                "middleName": { "type": "string", "example":""},
+                                "birthDate": { "type": "string", "example":""},
+                                "mobileNumber": { "type": "string", "example":""},
+                                "emailAddress": { "type": "string", "example":""},
+                                "memberType": { "type": "number", "example":""},
+                                "amount": { "type": "number", "example":""},
+                                "loanNumber": { "type": "string", "example":""},
+                                "agentRefNo": { "type": "string", "example":""}
+                            }
+                        }
+                    }
+                ],
+                "produces":[
+                        "application/json"
+                    ],
+                "responses":{
+                    "200":{
+                        "schema":{
+                            "properties":{
+                                "status": "200",
+                                "message": "success",
+                                "data": {
+                                    "statusCode": "",
+                                    "data": ""
+                                }
+                            }
+                        }
+                    },
+                    "400":{
+                        "schema":{
+                            "$ref":"#/definitions/400"
+                        }
+                    },
+                    "500":{
+                        "schema":{
+                            "$ref":"#/definitions/500"
+                        }
+                    }
+                }
+            }
+        },
+        "/sss-payment/real-estate-loan/process": {
+            "post":{
+                "tags":[
+                    "SSS Payment"
+                ],
+                "summary":"Real estate loan - process",
+                "parameters":[
+                    {
+                        "name":"data",
+                        "in":"body",
+                        "schema":{
+                            "required":["*"],
+                            "properties":{
+                                "memberId": { "type": "string", "example":""},
+                                "lastName": { "type": "string", "example":""},
+                                "firstName": { "type": "string", "example":""},
+                                "middleName": { "type": "string", "example":""},
+                                "birthDate": { "type": "string", "example":""},
+                                "mobileNumber": { "type": "string", "example":""},
+                                "emailAddress": { "type": "string", "example":""},
+                                "memberType": { "type": "number", "example":""},
+                                "amount": { "type": "number", "example":""},
+                                "loanNumber": { "type": "string", "example":""},
+                                "agentRefNo": { "type": "string", "example":""}
+                            }
+                        }
+                    }
+                ],
+                "produces":[
+                        "application/json"
+                    ],
+                "responses":{
+                    "200":{
+                        "schema":{
+                            "properties":{
+                                "status": "200",
+                                "message": "success",
+                                "data": {
+                                    "statusCode": "",
+                                    "data": ""
+                                }
+                            }
+                        }
+                    },
+                    "400":{
+                        "schema":{
+                            "$ref":"#/definitions/400"
+                        }
+                    },
+                    "500":{
+                        "schema":{
+                            "$ref":"#/definitions/500"
+                        }
+                    }
+                }
+            }
+        },
+        "/sss-payment/miscellaneous/validate": {
+            "post":{
+                "tags":[
+                    "SSS Payment"
+                ],
+                "summary":"Miscellaneous payment - validate",
+                "parameters":[
+                    {
+                        "name":"data",
+                        "in":"body",
+                        "schema":{
+                            "required":["*"],
+                            "properties":{
+                                "paymentType": { "type": "string", "example":""},
+                                "memberId": { "type": "string", "example":""},
+                                "lastName": { "type": "string", "example":""},
+                                "firstName": { "type": "string", "example":""},
+                                "middleName": { "type": "string", "example":""},
+                                "birthDate": { "type": "string", "example":""},
+                                "mobileNumber": { "type": "string", "example":""},
+                                "emailAddress": { "type": "string", "example":""},
+                                "memberType": { "type": "number", "example":""},
+                                "amount": { "type": "number", "example":""},
+                                "agentRefNo": { "type": "string", "example":""}
+                            }
+                        }
+                    }
+                ],
+                "produces":[
+                        "application/json"
+                    ],
+                "responses":{
+                    "200":{
+                        "schema":{
+                            "properties":{
+                                "status": "200",
+                                "message": "success",
+                                "data": {
+                                    "statusCode": "",
+                                    "data": ""
+                                }
+                            }
+                        }
+                    },
+                    "400":{
+                        "schema":{
+                            "$ref":"#/definitions/400"
+                        }
+                    },
+                    "500":{
+                        "schema":{
+                            "$ref":"#/definitions/500"
+                        }
+                    }
+                }
+            }
+        },
+        "/sss-payment/miscellaneous/process": {
+            "post":{
+                "tags":[
+                    "SSS Payment"
+                ],
+                "summary":"Miscellaneous payment - process",
+                "parameters":[
+                    {
+                        "name":"data",
+                        "in":"body",
+                        "schema":{
+                            "required":["*"],
+                            "properties":{
+                                "paymentType": { "type": "string", "example":""},
+                                "memberId": { "type": "string", "example":""},
+                                "lastName": { "type": "string", "example":""},
+                                "firstName": { "type": "string", "example":""},
+                                "middleName": { "type": "string", "example":""},
+                                "birthDate": { "type": "string", "example":""},
+                                "mobileNumber": { "type": "string", "example":""},
+                                "emailAddress": { "type": "string", "example":""},
+                                "memberType": { "type": "number", "example":""},
+                                "amount": { "type": "number", "example":""},
+                                "agentRefNo": { "type": "string", "example":""}
+                            }
+                        }
+                    }
+                ],
+                "produces":[
+                        "application/json"
+                    ],
+                "responses":{
+                    "200":{
+                        "schema":{
+                            "properties":{
+                                "status": "200",
+                                "message": "success",
+                                "data": {
+                                    "statusCode": "",
+                                    "data": ""
+                                }
+                            }
+                        }
+                    },
+                    "400":{
+                        "schema":{
+                            "$ref":"#/definitions/400"
+                        }
+                    },
+                    "500":{
+                        "schema":{
+                            "$ref":"#/definitions/500"
+                        }
+                    }
+                }
+            }
+        },
+        "/sss-payment/contribution/inquiry": {
+            "post":{
+                "tags":[
+                    "SSS Payment"
+                ],
+                "summary":"inquiry transaction contribution",
+                "parameters":[
+                    {
+                        "name":"data",
+                        "in":"body",
+                        "schema":{
+                            "required":["*"],
+                            "properties":{
+                                "transactionNumber": {"type":"string", "example": ""},
+                                "referenceNumber": {"type":"string", "example": ""},
+                                "agentRefNo": {"type":"string", "example": ""},
+                                "dateEntry": {"type":"string", "example": ""}
+                            }
+                        }
+                    }
+                ],
+                "produces":[
+                        "application/json"
+                    ],
+                "responses":{
+                    "200":{
+                        "schema":{
+                            "properties":{
+                                "status": "200",
+                                "message": "success",
+                                "data": {
+                                    "statusCode": "",
+                                    "data": ""
+                                }
+                            }
+                        }
+                    },
+                    "400":{
+                        "schema":{
+                            "$ref":"#/definitions/400"
+                        }
+                    },
+                    "500":{
+                        "schema":{
+                            "$ref":"#/definitions/500"
+                        }
+                    }
+                }
+            }
+        },
+        "/sss-payment/short-term-loan/inquiry": {
+            "post":{
+                "tags":[
+                    "SSS Payment"
+                ],
+                "summary":"inquiry transaction short-term-loan",
+                "parameters":[
+                    {
+                        "name":"data",
+                        "in":"body",
+                        "schema":{
+                            "required":["*"],
+                            "properties":{
+                                "transactionNumber": {"type":"string", "example": ""},
+                                "referenceNumber": {"type":"string", "example": ""},
+                                "agentRefNo": {"type":"string", "example": ""},
+                                "dateEntry": {"type":"string", "example": ""}
+                            }
+                        }
+                    }
+                ],
+                "produces":[
+                        "application/json"
+                    ],
+                "responses":{
+                    "200":{
+                        "schema":{
+                            "properties":{
+                                "status": "200",
+                                "message": "success",
+                                "data": {
+                                    "statusCode": "",
+                                    "data": ""
+                                }
+                            }
+                        }
+                    },
+                    "400":{
+                        "schema":{
+                            "$ref":"#/definitions/400"
+                        }
+                    },
+                    "500":{
+                        "schema":{
+                            "$ref":"#/definitions/500"
+                        }
+                    }
+                }
+            }
+        },
+        "/sss-payment/real-estate-loan/inquiry": {
+            "post":{
+                "tags":[
+                    "SSS Payment"
+                ],
+                "summary":"inquiry transaction real-estate-loan",
+                "parameters":[
+                    {
+                        "name":"data",
+                        "in":"body",
+                        "schema":{
+                            "required":["*"],
+                            "properties":{
+                                "transactionNumber": {"type":"string", "example": ""},
+                                "referenceNumber": {"type":"string", "example": ""},
+                                "agentRefNo": {"type":"string", "example": ""},
+                                "dateEntry": {"type":"string", "example": ""}
+                            }
+                        }
+                    }
+                ],
+                "produces":[
+                        "application/json"
+                    ],
+                "responses":{
+                    "200":{
+                        "schema":{
+                            "properties":{
+                                "status": "200",
+                                "message": "success",
+                                "data": {
+                                    "statusCode": "",
+                                    "data": ""
+                                }
+                            }
+                        }
+                    },
+                    "400":{
+                        "schema":{
+                            "$ref":"#/definitions/400"
+                        }
+                    },
+                    "500":{
+                        "schema":{
+                            "$ref":"#/definitions/500"
+                        }
+                    }
+                }
+            }
+        },
+        "/sss-payment/miscellaneous/inquiry": {
+            "post":{
+                "tags":[
+                    "SSS Payment"
+                ],
+                "summary":"inquiry transaction miscellaneous",
+                "parameters":[
+                    {
+                        "name":"data",
+                        "in":"body",
+                        "schema":{
+                            "required":["*"],
+                            "properties":{
+                                "transactionNumber": {"type":"string", "example": ""},
+                                "referenceNumber": {"type":"string", "example": ""},
+                                "agentRefNo": {"type":"string", "example": ""},
+                                "dateEntry": {"type":"string", "example": ""}
+                            }
+                        }
+                    }
+                ],
+                "produces":[
+                        "application/json"
+                    ],
+                "responses":{
+                    "200":{
+                        "schema":{
+                            "properties":{
+                                "status": "200",
+                                "message": "success",
+                                "data": {
+                                    "statusCode": "",
+                                    "data": ""
+                                }
+                            }
+                        }
+                    },
+                    "400":{
+                        "schema":{
+                            "$ref":"#/definitions/400"
+                        }
+                    },
+                    "500":{
+                        "schema":{
+                            "$ref":"#/definitions/500"
+                        }
+                    }
+                }
+            }
+        },
+        "/sss-payment/real-estate-loan/cancel": {
+            "post":{
+                "tags":[
+                    "SSS Payment"
+                ],
+                "summary":"cancel transaction real-estate-loan",
+                "parameters":[
+                    {
+                        "name":"data",
+                        "in":"body",
+                        "schema":{
+                            "required":["*"],
+                            "properties":{
+                                "transactionNumber": {"type":"string", "example": ""},
+                                "referenceNumber": {"type":"string", "example": ""},
+                                "agentRefNo": {"type":"string", "example": ""}
+                            }
+                        }
+                    }
+                ],
+                "produces":[
+                        "application/json"
+                    ],
+                "responses":{
+                    "200":{
+                        "schema":{
+                            "properties":{
+                                "status": "200",
+                                "message": "success",
+                                "data": {
+                                    "statusCode": "",
+                                    "data": ""
+                                }
+                            }
+                        }
+                    },
+                    "400":{
+                        "schema":{
+                            "$ref":"#/definitions/400"
+                        }
+                    },
+                    "500":{
+                        "schema":{
+                            "$ref":"#/definitions/500"
+                        }
+                    }
+                }
+            }
+        },
+        "/sss-payment/miscellaneous/cancel": {
+            "post":{
+                "tags":[
+                    "SSS Payment"
+                ],
+                "summary":"cancel transaction miscellaneous",
+                "parameters":[
+                    {
+                        "name":"data",
+                        "in":"body",
+                        "schema":{
+                            "required":["*"],
+                            "properties":{
+                                "transactionNumber": {"type":"string", "example": ""},
+                                "referenceNumber": {"type":"string", "example": ""},
+                                "agentRefNo": {"type":"string", "example": ""}
+                            }
+                        }
+                    }
+                ],
+                "produces":[
+                        "application/json"
+                    ],
+                "responses":{
+                    "200":{
+                        "schema":{
+                            "properties":{
+                                "status": "200",
+                                "message": "success",
+                                "data": {
+                                    "statusCode": "",
+                                    "data": ""
+                                }
                             }
                         }
                     },
@@ -308,19 +1375,6 @@
             }
         }
     },
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
