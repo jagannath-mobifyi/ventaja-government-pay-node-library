@@ -265,18 +265,17 @@
                         "schema":{
                             "required":["*"],
                             "properties":{
-                                "memberId": {"type": "string", "example": "010501525338"},
-                                "lastName": {"type": "string", "example": "CRUZ"},
-                                "firstName": {"type": "string", "example": "JUAN"},
-                                "middleName": {"type": "string", "example": "DELA"},
-                                "birthDate": {"type": "string", "example": "1980-01-01"},
-                                "mobileNumber": {"type": "string", "example": ""},
-                                "emailAddress": {"type": "string", "example": "juan.delacruz@email.com"},
-                                "memberType": {"type": "number", "example": 0},
-                                "amount": {"type": "number", "example": 240.0},
-                                "startMonth": {"type": "number", "example": 2017},
-                                "startYear": {"type": "number", "example": 1},
-                                "agentRefNo": {"type": "string", "example": "A1234"}  
+                                "memberId":{"type": "string", "example": ""},
+                                "lastName":{"type": "string", "example": ""},
+                                "firstName":{"type": "string", "example": ""},
+                                "middleName":{"type": "string", "example": ""},
+                                "birthDate":{"type": "string", "example": ""},
+                                "mobileNumber":{"type": "string", "example": ""},
+                                "emailAddress":{"type": "string", "example": ""},
+                                "memberType":{"type": "number", "example": ""},
+                                "amount":{"type": "number", "example": ""},
+                                "loanNumber":{"type": "number", "example": ""},
+                                "agentRefNo":{"type": "string", "example": ""}
                             }
                         }
                     }
@@ -288,9 +287,10 @@
                     "200":{
                         "schema":{
                             "properties":{
-                                "transactionNumber": {"example": "string" },
-                                "referenceNumber": {"example": "string" },
-                                "dateEntry": {"example": "yyyy-MM-ddTHH:mm:ss"}
+                                "status": "200",
+                                "message": "success",
+                                "statusCode": "",
+                                "data": {}
                             }
                         }
                     },

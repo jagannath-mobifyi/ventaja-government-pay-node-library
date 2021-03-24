@@ -9,40 +9,40 @@
 ## SSS gov payment
 - SSS Contribution:
 ---
-- - validateContributionSearchPrnByMember - sss-contribution/searchprnbymember/validate
-- - processContributionSearchPrnByMember - sss-contribution/searchprnbymember/process
-- - validateContributionSearchByPrn - sss-contribution/searchbyprn/validate
-- - processContributionSearchByPrn - sss-contribution/searchbyprn/process
-- - validateContributionCreateAndPayPrn - sss-contribution/createandpay/validate
-- - processContributionCreateAndPayPrn - sss-contribution/createandpay/proccess
-- - validateContributionPayForPrn - ss-contribution/payforprn/validate
-- - processContributionPayForPrn - ss-contribution/payforprn/process
+- - validateContributionSearchPrnByMember - sss-payment/contribution/searchprnbymember/validate
+- - processContributionSearchPrnByMember - sss-payment/contribution/searchprnbymember/process
+- - validateContributionSearchByPrn - sss-payment/contribution/searchbyprn/validate
+- - processContributionSearchByPrn - sss-payment/contribution/searchbyprn/process
+- - validateContributionCreateAndPayPrn - sss-payment/contribution/createandpay/validate
+- - processContributionCreateAndPayPrn - sss-payment/contribution/createandpay/proccess
+- - validateContributionPayForPrn - sss-payment/contribution/payforprn/validate
+- - processContributionPayForPrn - sss-payment/contribution/payforprn/process
 
 - Short Term Load:
 ---
-- - validateSearchByRtplPrn - sss-short-term-loan/searchbyrtplprn/validate
-- - processSearchByRtplPrn - sss-short-term-loan/searchbyrtplprn/process
-- - validatePayForRtplPrn - sss-short-term-loan/payforrtplprn/validate
-- - processPayForRtplPrn - sss-short-term-loan/payforrtplprn/process
+- - validateSearchByRtplPrn - sss-payment/short-term-loan/searchbyrtplprn/validate
+- - processSearchByRtplPrn - sss-payment/short-term-loan/searchbyrtplprn/process
+- - validatePayForRtplPrn - sss-payment/short-term-loan/payforrtplprn/validate
+- - processPayForRtplPrn - sss-payment/short-term-loan/payforrtplprn/process
 
 - SSS Real Estate Loan:
 ---
-- - validateRealEstateLoanPayment - sss-real-estate-loan/validate
-- - processRealEstateLoanPayment - sss-real-estate-loan/process
+- - validateRealEstateLoanPayment - sss-payment/real-estate-loan/validate
+- - processRealEstateLoanPayment - sss-payment/real-estate-loan/process
 
 - SSS Miscellaneous Payment
 ---
-- - validateMiscellaneousPayment - sss-miscellaneous/validate
-- - processMiscellaneousPayment - sss-miscellaneous/process
+- - validateMiscellaneousPayment - sss-payment/miscellaneous/validate
+- - processMiscellaneousPayment - sss-payment/miscellaneous/process
 
 - SSS Transaction Inquiry:
 ---
-- - inquiryContributionTransaction - sss-contribution/inquiry
-- - inquiryShortTermLoanTransaction - sss-short-term-loan/inquiry
-- - inquiryRealEstateLoanTransaction - sss-real-estate-loan/inquiry
-- - inquiryMiscellaneousTransaction - sss-miscellaneous/inquiry
+- - inquiryContributionTransaction - sss-payment/contribution/inquiry
+- - inquiryShortTermLoanTransaction - sss-payment/short-term-loan/inquiry
+- - inquiryRealEstateLoanTransaction - sss-payment/real-estate-loan/inquiry
+- - inquiryMiscellaneousTransaction - sss-payment/miscellaneous/inquiry
 
 - SSS Cancel Transaction:
 ---
-- - inquiryRealEstateLoanTransaction - sss-real-estate-loan/cancel
-- - cancelMiscellaneousTransaction - sss-miscellaneous/cancel
+- - inquiryRealEstateLoanTransaction - sss-payment/real-estate-loan/cancel
+- - cancelMiscellaneousTransaction - sss-payment/miscellaneous/cancel
