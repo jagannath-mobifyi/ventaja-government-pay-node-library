@@ -31,3 +31,5 @@ typings/
 
 # Optional eslint cache
 .eslintcache
+
+*.key
