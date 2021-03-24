@@ -2,15 +2,15 @@
     "swagger":"2.0",
     "info":{
        "version":"1.0.0",
-       "title":"My User Project CRUD",
-       "description":"My User Project Application API",
+       "title":"Node js test api",
+       "description":"Ventaja Government Pay Test apis node js",
        "license":{
           "name":"MIT",
           "url":"https://opensource.org/licenses/MIT"
        },
        "contact": {
-            "name":"jagan",
-            "email": "jagan.appscrip@gmail.com"
+            "name":"appscrip",
+            "email": "jagannath@appscrip.co"
       }
     },
     "components":{
@@ -33,12 +33,7 @@
         "http://localhost:8000/"
     ],
     "basePath":"/",
-    "tags":[
-       {
-          "name":"Users",
-          "description":"API for app to signup and users details"
-       }
-    ],
+
     "schemes":[
        "http", "https"
     ],
