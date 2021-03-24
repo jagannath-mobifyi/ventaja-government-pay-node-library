@@ -1,0 +1,146 @@
+{
+    "swagger":"2.0",
+    "info":{
+       "version":"1.0.0",
+       "title":"My User Project CRUD",
+       "description":"My User Project Application API",
+       "license":{
+          "name":"MIT",
+          "url":"https://opensource.org/licenses/MIT"
+       },
+       "contact": {
+            "name":"jagan",
+            "email": "jagan.appscrip@gmail.com"
+      }
+    },
+    "components":{
+        "securitySchemes":[
+            {
+                "bearerAuth":{
+                    "type": "http",
+                    "description":"access token",
+                    "scheme": "bearer",
+                    "bearerFormat": "JWT",
+                    "in": "header"
+                }
+            }
+        ]
+    },
+    "security": {
+    },
+    
+    "servers":[
+        "http://localhost:8000/"
+    ],
+    "basePath":"/",
+    "tags":[
+       {
+          "name":"Users",
+          "description":"API for app to signup and users details"
+       }
+    ],
+    "schemes":[
+       "http", "https"
+    ],
+    "consumes":[
+       "application/json"
+    ],
+    "produces":[
+       "application/json"
+    ],
+    "paths":{ 
+        "/contribution/validate": {
+            "post":{
+                "tags":[
+                    "philhealth"
+                ],
+                "summary":"Validate transaction",
+                "parameters":[
+                    {
+                        "name":"data",
+                        "in":"body",
+                        "schema":{
+                            "required":["*"],
+                            "properties":{
+                                "memberId": {"type": "string", "example": "010501525338"},
+                                "lastName": {"type": "string", "example": "CRUZ"},
+                                "firstName": {"type": "string", "example": "JUAN"},
+                                "middleName": {"type": "string", "example": "DELA"},
+                                "birthDate": {"type": "string", "example": "1980-01-01"},
+                                "mobileNumber": {"type": "string", "example": ""},
+                                "emailAddress": {"type": "string", "example": "juan.delacruz@email.com"},
+                                "memberType": {"type": "number", "example": 0},
+                                "amount": {"type": "number", "example": 240.0},
+                                "startMonth": {"type": "number", "example": 2017},
+                                "startYear": {"type": "number", "example": 1},
+                                "agentRefNo": {"type": "string", "example": "A1234"}  
+                            }
+                        }
+                    }
+                ],
+                "produces":[
+                        "application/json"
+                    ],
+                    "responses":{
+                        "200":{
+                            "schema":{
+                                "properties":{
+                                    "transactionNumber": {"example": "string" },
+                                    "referenceNumber": {"example": "string" },
+                                    "dateEntry": {"example": "yyyy-MM-ddTHH:mm:ss"}
+                                }
+                            }
+                        },
+                        "400":{
+                            "schema":{
+                                "$ref":"#/definitions/400"
+                            }
+                        },
+                        "500":{
+                            "schema":{
+                                "$ref":"#/definitions/500"
+                            }
+                        }
+                    }
+                }
+            }
+    },
+    "definitions":{
+       "201": {
+           "type": "object",
+           "properties": {
+               "message": {
+                   "type": "string",
+                   "example":"Success"
+                },
+               "status": {
+                   "type": "integer",
+                   "example": 201
+               }
+           }
+       },
+        "400": {
+            "type": "object",
+            "properties": {
+                "responseCode": {"type": "number", "example": 131},
+                "message": {"type": "string", "example": "Duplicate transaction"},
+                "description": {"type": "string", "example": "Applicable date has an overlapping payment"},
+                "status": {"type": "number", "example": 400}
+            }
+        },
+        "500": {
+            "type": "object",
+            "properties": {
+                "message": {
+                    "type": "string",
+                    "example":"Internal server error!"
+                 },
+                "status": {
+                    "type": "integer",
+                    "example": 500
+                }
+            }
+        }
+    }
+    
+ }
