@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 const cors = require('cors');
 const config = require('./config')
-const {SignService} = require('ventaja-nodejs-library');
+const {SignService} = require('./ventaja-nodejs-library');
 
 const options = {
     certificatePath: "server.key",

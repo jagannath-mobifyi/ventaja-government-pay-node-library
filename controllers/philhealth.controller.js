@@ -28,7 +28,7 @@ const validate = async(req, res) => {
  * @date 24/03/2021
  */
  const process = async(req, res) => {
-    const service = req.service;
+    const service = req.service.healthService;
 
     try {
         let result = await service.processPhilHealthPayment(req.body)
@@ -50,7 +50,7 @@ const validate = async(req, res) => {
  * @date 24/03/2021
  */
  const inquiry = async(req, res) => {
-    const service = req.service;
+    const service = req.service.healthService;
     try {
         let result = await service.inquiryPhilHealthPayment(req.body)
         if(result.status == 200){
@@ -72,7 +72,7 @@ const validate = async(req, res) => {
  * @date 24/03/2021
  */
  const cancel = async(req, res) => {
-    const service = req.service;
+    const service = req.service.healthService;
     try {
         let result = await service.cancelPhilHealthPayment(schemaValidator)
         if(result.status == 200){

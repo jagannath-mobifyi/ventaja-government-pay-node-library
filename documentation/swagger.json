@@ -1,24 +1,24 @@
 {
-    "swagger":"2.0",
-    "info":{
-       "version":"1.0.0",
-       "title":"Node js test api",
-       "description":"Ventaja Government Pay Test apis node js",
-       "license":{
-          "name":"MIT",
-          "url":"https://opensource.org/licenses/MIT"
-       },
-       "contact": {
-            "name":"appscrip",
+    "swagger": "2.0",
+    "info": {
+        "version": "1.0.0",
+        "title": "Node js test api",
+        "description": "Ventaja Government Pay Test apis node js",
+        "license": {
+            "name": "MIT",
+            "url": "https://opensource.org/licenses/MIT"
+        },
+        "contact": {
+            "name": "appscrip",
             "email": "jagannath@appscrip.co"
-      }
+        }
     },
-    "components":{
-        "securitySchemes":[
+    "components": {
+        "securitySchemes": [
             {
-                "bearerAuth":{
+                "bearerAuth": {
                     "type": "http",
-                    "description":"access token",
+                    "description": "access token",
                     "scheme": "bearer",
                     "bearerFormat": "JWT",
                     "in": "header"
@@ -26,252 +26,380 @@
             }
         ]
     },
-    "security": {
-    },
-    
-    "servers":[
+    "security": {},
+    "servers": [
         "http://localhost:8000/"
     ],
-    "basePath":"/",
-
-    "schemes":[
-       "http", "https"
+    "basePath": "/",
+    "schemes": [
+        "http",
+        "https"
     ],
-    "consumes":[
-       "application/json"
+    "consumes": [
+        "application/json"
     ],
-    "produces":[
-       "application/json"
+    "produces": [
+        "application/json"
     ],
-    "paths":{ 
+    "paths": {
         "/philhealth/contribution/validate": {
-            "post":{
-                "tags":[
+            "post": {
+                "tags": [
                     "philhealth"
                 ],
-                "summary":"Validate transaction",
-                "parameters":[
+                "summary": "Validate transaction",
+                "parameters": [
                     {
-                        "name":"data",
-                        "in":"body",
-                        "schema":{
-                            "required":["*"],
-                            "properties":{
-                                "memberId": {"type": "string", "example": "010501525338"},
-                                "lastName": {"type": "string", "example": "CRUZ"},
-                                "firstName": {"type": "string", "example": "JUAN"},
-                                "middleName": {"type": "string", "example": "DELA"},
-                                "birthDate": {"type": "string", "example": "1980-01-01"},
-                                "mobileNumber": {"type": "string", "example": ""},
-                                "emailAddress": {"type": "string", "example": "juan.delacruz@email.com"},
-                                "memberType": {"type": "number", "example": 0},
-                                "amount": {"type": "number", "example": 240.0},
-                                "startMonth": {"type": "number", "example": 2017},
-                                "startYear": {"type": "number", "example": 1},
-                                "agentRefNo": {"type": "string", "example": "A1234"}  
+                        "name": "data",
+                        "in": "body",
+                        "schema": {
+                            "required": [
+                                "*"
+                            ],
+                            "properties": {
+                                "memberId": {
+                                    "type": "string",
+                                    "example": "010501525338"
+                                },
+                                "lastName": {
+                                    "type": "string",
+                                    "example": "CRUZ"
+                                },
+                                "firstName": {
+                                    "type": "string",
+                                    "example": "JUAN"
+                                },
+                                "middleName": {
+                                    "type": "string",
+                                    "example": "DELA"
+                                },
+                                "birthDate": {
+                                    "type": "string",
+                                    "example": "1980-01-01"
+                                },
+                                "mobileNumber": {
+                                    "type": "string",
+                                    "example": ""
+                                },
+                                "emailAddress": {
+                                    "type": "string",
+                                    "example": "juan.delacruz@email.com"
+                                },
+                                "memberType": {
+                                    "type": "number",
+                                    "example": 0
+                                },
+                                "amount": {
+                                    "type": "number",
+                                    "example": 240.0
+                                },
+                                "startMonth": {
+                                    "type": "number",
+                                    "example": 2017
+                                },
+                                "startYear": {
+                                    "type": "number",
+                                    "example": 1
+                                },
+                                "agentRefNo": {
+                                    "type": "string",
+                                    "example": "A1234"
+                                }
                             }
                         }
                     }
                 ],
-                "produces":[
-                        "application/json"
-                    ],
-                "responses":{
-                    "200":{
-                        "schema":{
-                            "properties":{
-                                "transactionNumber": {"example": "string" },
-                                "referenceNumber": {"example": "string" },
-                                "dateEntry": {"example": "yyyy-MM-ddTHH:mm:ss"}
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "schema": {
+                            "properties": {
+                                "transactionNumber": {
+                                    "example": "string"
+                                },
+                                "referenceNumber": {
+                                    "example": "string"
+                                },
+                                "dateEntry": {
+                                    "example": "yyyy-MM-ddTHH:mm:ss"
+                                }
                             }
                         }
                     },
-                    "400":{
-                        "schema":{
-                            "$ref":"#/definitions/400"
+                    "400": {
+                        "schema": {
+                            "$ref": "#/definitions/400"
                         }
                     },
-                    "500":{
-                        "schema":{
-                            "$ref":"#/definitions/500"
+                    "500": {
+                        "schema": {
+                            "$ref": "#/definitions/500"
                         }
                     }
                 }
             }
         },
         "/philhealth/contribution/process": {
-            "post":{
-                "tags":[
+            "post": {
+                "tags": [
                     "philhealth"
                 ],
-                "summary":"process transaction",
-                "parameters":[
+                "summary": "process transaction",
+                "parameters": [
                     {
-                        "name":"data",
-                        "in":"body",
-                        "schema":{
-                            "required":["*"],
-                            "properties":{
-                                "memberId": {"type": "string", "example": "010501525338"},
-                                "lastName": {"type": "string", "example": "CRUZ"},
-                                "firstName": {"type": "string", "example": "JUAN"},
-                                "middleName": {"type": "string", "example": "DELA"},
-                                "birthDate": {"type": "string", "example": "1980-01-01"},
-                                "mobileNumber": {"type": "string", "example": ""},
-                                "emailAddress": {"type": "string", "example": "juan.delacruz@email.com"},
-                                "memberType": {"type": "number", "example": 0},
-                                "amount": {"type": "number", "example": 240.0},
-                                "startMonth": {"type": "number", "example": 2017},
-                                "startYear": {"type": "number", "example": 1},
-                                "agentRefNo": {"type": "string", "example": "A1234"}  
+                        "name": "data",
+                        "in": "body",
+                        "schema": {
+                            "required": [
+                                "*"
+                            ],
+                            "properties": {
+                                "memberId": {
+                                    "type": "string",
+                                    "example": "010501525338"
+                                },
+                                "lastName": {
+                                    "type": "string",
+                                    "example": "CRUZ"
+                                },
+                                "firstName": {
+                                    "type": "string",
+                                    "example": "JUAN"
+                                },
+                                "middleName": {
+                                    "type": "string",
+                                    "example": "DELA"
+                                },
+                                "birthDate": {
+                                    "type": "string",
+                                    "example": "1980-01-01"
+                                },
+                                "mobileNumber": {
+                                    "type": "string",
+                                    "example": ""
+                                },
+                                "emailAddress": {
+                                    "type": "string",
+                                    "example": "juan.delacruz@email.com"
+                                },
+                                "memberType": {
+                                    "type": "number",
+                                    "example": 0
+                                },
+                                "amount": {
+                                    "type": "number",
+                                    "example": 240.0
+                                },
+                                "startMonth": {
+                                    "type": "number",
+                                    "example": 2017
+                                },
+                                "startYear": {
+                                    "type": "number",
+                                    "example": 1
+                                },
+                                "agentRefNo": {
+                                    "type": "string",
+                                    "example": "A1234"
+                                }
                             }
                         }
                     }
                 ],
-                "produces":[
-                        "application/json"
-                    ],
-                "responses":{
-                    "200":{
-                        "schema":{
-                            "properties":{
-                                "transactionNumber": {"example": "string" },
-                                "referenceNumber": {"example": "string" },
-                                "dateEntry": {"example": "yyyy-MM-ddTHH:mm:ss"}
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "schema": {
+                            "properties": {
+                                "transactionNumber": {
+                                    "example": "string"
+                                },
+                                "referenceNumber": {
+                                    "example": "string"
+                                },
+                                "dateEntry": {
+                                    "example": "yyyy-MM-ddTHH:mm:ss"
+                                }
                             }
                         }
                     },
-                    "400":{
-                        "schema":{
-                            "$ref":"#/definitions/400"
+                    "400": {
+                        "schema": {
+                            "$ref": "#/definitions/400"
                         }
                     },
-                    "500":{
-                        "schema":{
-                            "$ref":"#/definitions/500"
+                    "500": {
+                        "schema": {
+                            "$ref": "#/definitions/500"
                         }
                     }
                 }
             }
         },
         "/philhealth/contribution/inquiry": {
-            "post":{
-                "tags":[
+            "post": {
+                "tags": [
                     "philhealth"
                 ],
-                "summary":"inquiry transaction",
-                "parameters":[
+                "summary": "inquiry transaction",
+                "parameters": [
                     {
-                        "name":"data",
-                        "in":"body",
-                        "schema":{
-                            "required":["*"],
-                            "properties":{
-                                "transactionNumber": {"type": "string", "example": ""},
-                                "referenceNumber": {"type": "string", "example": ""},
-                                "agentRefNo": {"type": "string", "example": ""},
-                                "dateEntry": {"type": "string", "example": ""}  
+                        "name": "data",
+                        "in": "body",
+                        "schema": {
+                            "required": [
+                                "*"
+                            ],
+                            "properties": {
+                                "transactionNumber": {
+                                    "type": "string",
+                                    "example": ""
+                                },
+                                "referenceNumber": {
+                                    "type": "string",
+                                    "example": ""
+                                },
+                                "agentRefNo": {
+                                    "type": "string",
+                                    "example": ""
+                                },
+                                "dateEntry": {
+                                    "type": "string",
+                                    "example": ""
+                                }
                             }
                         }
                     }
                 ],
-                "produces":[
-                        "application/json"
-                    ],
-                "responses":{
-                    "200":{
-                        "schema":{
-                            "properties":{
-                                "transactionNumber": {"example": "string" },
-                                "referenceNumber": {"example": "string" },
-                                "dateEntry": {"example": "yyyy-MM-ddTHH:mm:ss"}
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "schema": {
+                            "properties": {
+                                "transactionNumber": {
+                                    "example": "string"
+                                },
+                                "referenceNumber": {
+                                    "example": "string"
+                                },
+                                "dateEntry": {
+                                    "example": "yyyy-MM-ddTHH:mm:ss"
+                                }
                             }
                         }
                     },
-                    "400":{
-                        "schema":{
-                            "$ref":"#/definitions/400"
+                    "400": {
+                        "schema": {
+                            "$ref": "#/definitions/400"
                         }
                     },
-                    "500":{
-                        "schema":{
-                            "$ref":"#/definitions/500"
+                    "500": {
+                        "schema": {
+                            "$ref": "#/definitions/500"
                         }
                     }
                 }
             }
         },
         "/philhealth/contribution/cancel": {
-            "post":{
-                "tags":[
+            "post": {
+                "tags": [
                     "philhealth"
                 ],
-                "summary":"cancel transaction",
-                "parameters":[
+                "summary": "cancel transaction",
+                "parameters": [
                     {
-                        "name":"data",
-                        "in":"body",
-                        "schema":{
-                            "required":["*"],
-                            "properties":{
-                                "transactionNumber": {"type": "string", "example": ""},
-                                "referenceNumber": {"type": "string", "example": ""},
-                                "agentRefNo": {"type": "string", "example": ""} 
+                        "name": "data",
+                        "in": "body",
+                        "schema": {
+                            "required": [
+                                "*"
+                            ],
+                            "properties": {
+                                "transactionNumber": {
+                                    "type": "string",
+                                    "example": ""
+                                },
+                                "referenceNumber": {
+                                    "type": "string",
+                                    "example": ""
+                                },
+                                "agentRefNo": {
+                                    "type": "string",
+                                    "example": ""
+                                }
                             }
                         }
                     }
                 ],
-                "produces":[
-                        "application/json"
-                    ],
-                "responses":{
-                    "200":{
-                        "schema":{
-                            "properties":{
-                                "transactionNumber": {"example": "string" },
-                                "referenceNumber": {"example": "string" },
-                                "dateEntry": {"example": "yyyy-MM-ddTHH:mm:ss"}
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "schema": {
+                            "properties": {
+                                "transactionNumber": {
+                                    "example": "string"
+                                },
+                                "referenceNumber": {
+                                    "example": "string"
+                                },
+                                "dateEntry": {
+                                    "example": "yyyy-MM-ddTHH:mm:ss"
+                                }
                             }
                         }
                     },
-                    "400":{
-                        "schema":{
-                            "$ref":"#/definitions/400"
+                    "400": {
+                        "schema": {
+                            "$ref": "#/definitions/400"
                         }
                     },
-                    "500":{
-                        "schema":{
-                            "$ref":"#/definitions/500"
+                    "500": {
+                        "schema": {
+                            "$ref": "#/definitions/500"
                         }
                     }
                 }
             }
         },
         "/sss-payment/contribution/searchprnbymember/validate": {
-            "post":{
-                "tags":[
+            "post": {
+                "tags": [
                     "SSS Payment"
                 ],
-                "summary":"Search Prn By Member Id - validate",
-                "parameters":[
+                "summary": "Search Prn By Member Id - validate",
+                "parameters": [
                     {
-                        "name":"data",
-                        "in":"body",
-                        "schema":{
-                            "required":["*"],
-                            "properties":{
-                                "memberId":{"type": "string", "example": "010501525338"}
+                        "name": "data",
+                        "in": "body",
+                        "schema": {
+                            "required": [
+                                "*"
+                            ],
+                            "properties": {
+                                "memberId": {
+                                    "type": "string",
+                                    "example": "010501525338"
+                                }
                             }
                         }
                     }
                 ],
-                "produces":[
-                        "application/json"
-                    ],
-                "responses":{
-                    "200":{
-                        "schema":{
-                            "properties":{
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "schema": {
+                            "properties": {
                                 "status": "200",
                                 "message": "success",
                                 "data": {
@@ -281,44 +409,49 @@
                             }
                         }
                     },
-                    "400":{
-                        "schema":{
-                            "$ref":"#/definitions/400"
+                    "400": {
+                        "schema": {
+                            "$ref": "#/definitions/400"
                         }
                     },
-                    "500":{
-                        "schema":{
-                            "$ref":"#/definitions/500"
+                    "500": {
+                        "schema": {
+                            "$ref": "#/definitions/500"
                         }
                     }
                 }
             }
         },
         "/sss-payment/contribution/searchprnbymember/process": {
-            "post":{
-                "tags":[
+            "post": {
+                "tags": [
                     "SSS Payment"
                 ],
-                "summary":"Search Prn By Member Id - process",
-                "parameters":[
+                "summary": "Search Prn By Member Id - process",
+                "parameters": [
                     {
-                        "name":"data",
-                        "in":"body",
-                        "schema":{
-                            "required":["*"],
-                            "properties":{
-                                "memberId":{"type": "string", "example": "010501525338"}
+                        "name": "data",
+                        "in": "body",
+                        "schema": {
+                            "required": [
+                                "*"
+                            ],
+                            "properties": {
+                                "memberId": {
+                                    "type": "string",
+                                    "example": "010501525338"
+                                }
                             }
                         }
                     }
                 ],
-                "produces":[
-                        "application/json"
-                    ],
-                "responses":{
-                    "200":{
-                        "schema":{
-                            "properties":{
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "schema": {
+                            "properties": {
                                 "status": "200",
                                 "message": "success",
                                 "data": {
@@ -328,44 +461,49 @@
                             }
                         }
                     },
-                    "400":{
-                        "schema":{
-                            "$ref":"#/definitions/400"
+                    "400": {
+                        "schema": {
+                            "$ref": "#/definitions/400"
                         }
                     },
-                    "500":{
-                        "schema":{
-                            "$ref":"#/definitions/500"
+                    "500": {
+                        "schema": {
+                            "$ref": "#/definitions/500"
                         }
                     }
                 }
             }
         },
         "/sss-payment/contribution/searchbyprn/validate": {
-            "post":{
-                "tags":[
+            "post": {
+                "tags": [
                     "SSS Payment"
                 ],
-                "summary":"Search Prn By prn number - validate",
-                "parameters":[
+                "summary": "Search Prn By prn number - validate",
+                "parameters": [
                     {
-                        "name":"data",
-                        "in":"body",
-                        "schema":{
-                            "required":["*"],
-                            "properties":{
-                                "prn":{"type": "string", "example": "010501525338"}
+                        "name": "data",
+                        "in": "body",
+                        "schema": {
+                            "required": [
+                                "*"
+                            ],
+                            "properties": {
+                                "prn": {
+                                    "type": "string",
+                                    "example": "010501525338"
+                                }
                             }
                         }
                     }
                 ],
-                "produces":[
-                        "application/json"
-                    ],
-                "responses":{
-                    "200":{
-                        "schema":{
-                            "properties":{
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "schema": {
+                            "properties": {
                                 "status": "200",
                                 "message": "success",
                                 "data": {
@@ -375,44 +513,49 @@
                             }
                         }
                     },
-                    "400":{
-                        "schema":{
-                            "$ref":"#/definitions/400"
+                    "400": {
+                        "schema": {
+                            "$ref": "#/definitions/400"
                         }
                     },
-                    "500":{
-                        "schema":{
-                            "$ref":"#/definitions/500"
+                    "500": {
+                        "schema": {
+                            "$ref": "#/definitions/500"
                         }
                     }
                 }
             }
         },
         "/sss-payment/contribution/searchbyprn/process": {
-            "post":{
-                "tags":[
+            "post": {
+                "tags": [
                     "SSS Payment"
                 ],
-                "summary":"Search Prn By prn number - process",
-                "parameters":[
+                "summary": "Search Prn By prn number - process",
+                "parameters": [
                     {
-                        "name":"data",
-                        "in":"body",
-                        "schema":{
-                            "required":["*"],
-                            "properties":{
-                                "prn":{"type": "string", "example": "010501525338"}
+                        "name": "data",
+                        "in": "body",
+                        "schema": {
+                            "required": [
+                                "*"
+                            ],
+                            "properties": {
+                                "prn": {
+                                    "type": "string",
+                                    "example": "010501525338"
+                                }
                             }
                         }
                     }
                 ],
-                "produces":[
-                        "application/json"
-                    ],
-                "responses":{
-                    "200":{
-                        "schema":{
-                            "properties":{
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "schema": {
+                            "properties": {
                                 "status": "200",
                                 "message": "success",
                                 "data": {
@@ -422,58 +565,105 @@
                             }
                         }
                     },
-                    "400":{
-                        "schema":{
-                            "$ref":"#/definitions/400"
+                    "400": {
+                        "schema": {
+                            "$ref": "#/definitions/400"
                         }
                     },
-                    "500":{
-                        "schema":{
-                            "$ref":"#/definitions/500"
+                    "500": {
+                        "schema": {
+                            "$ref": "#/definitions/500"
                         }
                     }
                 }
             }
         },
         "/sss-payment/contribution/createandpay/validate": {
-            "post":{
-                "tags":[
+            "post": {
+                "tags": [
                     "SSS Payment"
                 ],
-                "summary":"Create and pay new prn - validate",
-                "parameters":[
+                "summary": "Create and pay new prn - validate",
+                "parameters": [
                     {
-                        "name":"data",
-                        "in":"body",
-                        "schema":{
-                            "required":["*"],
-                            "properties":{
-                                "memberId": {"type" : "string", "example": ""},
-                                "lastName": {"type" : "string", "example": ""},
-                                "firstName": {"type" : "string", "example": ""},
-                                "middleName": {"type" : "string", "example": ""},
-                                "birthDate": {"type" : "string", "example": ""},
-                                "mobileNumber": {"type" : "string", "example": ""},
-                                "emailAddress": {"type" : "string", "example": ""},
-                                "memberType": {"type" : "number", "example": ""},
-                                "amount": {"type" : "number", "example": ""},
-                                "startYear": {"type" : "number", "example": ""},
-                                "startMonth": {"type" : "number", "example": ""},
-                                "endYear": {"type" : "number", "example": ""},
-                                "endMonth": {"type" : "number", "example": ""},
-                                "flexiFund": {"type" : "number", "example": ""},
-                                "agentRefNo": {"type" : "string", "example": ""}
+                        "name": "data",
+                        "in": "body",
+                        "schema": {
+                            "required": [
+                                "*"
+                            ],
+                            "properties": {
+                                "memberId": {
+                                    "type": "string",
+                                    "example": ""
+                                },
+                                "lastName": {
+                                    "type": "string",
+                                    "example": ""
+                                },
+                                "firstName": {
+                                    "type": "string",
+                                    "example": ""
+                                },
+                                "middleName": {
+                                    "type": "string",
+                                    "example": ""
+                                },
+                                "birthDate": {
+                                    "type": "string",
+                                    "example": ""
+                                },
+                                "mobileNumber": {
+                                    "type": "string",
+                                    "example": ""
+                                },
+                                "emailAddress": {
+                                    "type": "string",
+                                    "example": ""
+                                },
+                                "memberType": {
+                                    "type": "number",
+                                    "example": ""
+                                },
+                                "amount": {
+                                    "type": "number",
+                                    "example": ""
+                                },
+                                "startYear": {
+                                    "type": "number",
+                                    "example": ""
+                                },
+                                "startMonth": {
+                                    "type": "number",
+                                    "example": ""
+                                },
+                                "endYear": {
+                                    "type": "number",
+                                    "example": ""
+                                },
+                                "endMonth": {
+                                    "type": "number",
+                                    "example": ""
+                                },
+                                "flexiFund": {
+                                    "type": "number",
+                                    "example": ""
+                                },
+                                "agentRefNo": {
+                                    "type": "string",
+                                    "example": ""
+                                }
                             }
                         }
                     }
                 ],
-                "produces":[
-                        "application/json"
-                    ],
-                "responses":{
-                    "200":{
-                        "schema":{
-                            "properties":{
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "schema": {
+                            "properties": {
                                 "status": "200",
                                 "message": "success",
                                 "data": {
@@ -483,58 +673,105 @@
                             }
                         }
                     },
-                    "400":{
-                        "schema":{
-                            "$ref":"#/definitions/400"
+                    "400": {
+                        "schema": {
+                            "$ref": "#/definitions/400"
                         }
                     },
-                    "500":{
-                        "schema":{
-                            "$ref":"#/definitions/500"
+                    "500": {
+                        "schema": {
+                            "$ref": "#/definitions/500"
                         }
                     }
                 }
             }
         },
         "/sss-payment/contribution/createandpay/process": {
-            "post":{
-                "tags":[
+            "post": {
+                "tags": [
                     "SSS Payment"
                 ],
-                "summary":"Create and pay new prn - process",
-                "parameters":[
+                "summary": "Create and pay new prn - process",
+                "parameters": [
                     {
-                        "name":"data",
-                        "in":"body",
-                        "schema":{
-                            "required":["*"],
-                            "properties":{
-                                "memberId": {"type" : "string", "example": ""},
-                                "lastName": {"type" : "string", "example": ""},
-                                "firstName": {"type" : "string", "example": ""},
-                                "middleName": {"type" : "string", "example": ""},
-                                "birthDate": {"type" : "string", "example": ""},
-                                "mobileNumber": {"type" : "string", "example": ""},
-                                "emailAddress": {"type" : "string", "example": ""},
-                                "memberType": {"type" : "number", "example": ""},
-                                "amount": {"type" : "number", "example": ""},
-                                "startYear": {"type" : "number", "example": ""},
-                                "startMonth": {"type" : "number", "example": ""},
-                                "endYear": {"type" : "number", "example": ""},
-                                "endMonth": {"type" : "number", "example": ""},
-                                "flexiFund": {"type" : "number", "example": ""},
-                                "agentRefNo": {"type" : "string", "example": ""}
+                        "name": "data",
+                        "in": "body",
+                        "schema": {
+                            "required": [
+                                "*"
+                            ],
+                            "properties": {
+                                "memberId": {
+                                    "type": "string",
+                                    "example": ""
+                                },
+                                "lastName": {
+                                    "type": "string",
+                                    "example": ""
+                                },
+                                "firstName": {
+                                    "type": "string",
+                                    "example": ""
+                                },
+                                "middleName": {
+                                    "type": "string",
+                                    "example": ""
+                                },
+                                "birthDate": {
+                                    "type": "string",
+                                    "example": ""
+                                },
+                                "mobileNumber": {
+                                    "type": "string",
+                                    "example": ""
+                                },
+                                "emailAddress": {
+                                    "type": "string",
+                                    "example": ""
+                                },
+                                "memberType": {
+                                    "type": "number",
+                                    "example": ""
+                                },
+                                "amount": {
+                                    "type": "number",
+                                    "example": ""
+                                },
+                                "startYear": {
+                                    "type": "number",
+                                    "example": ""
+                                },
+                                "startMonth": {
+                                    "type": "number",
+                                    "example": ""
+                                },
+                                "endYear": {
+                                    "type": "number",
+                                    "example": ""
+                                },
+                                "endMonth": {
+                                    "type": "number",
+                                    "example": ""
+                                },
+                                "flexiFund": {
+                                    "type": "number",
+                                    "example": ""
+                                },
+                                "agentRefNo": {
+                                    "type": "string",
+                                    "example": ""
+                                }
                             }
                         }
                     }
                 ],
-                "produces":[
-                        "application/json"
-                    ],
-                "responses":{
-                    "200":{
-                        "schema":{
-                            "properties":{
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "schema": {
+                            "properties": {
                                 "status": "200",
                                 "message": "success",
                                 "data": {
@@ -544,45 +781,53 @@
                             }
                         }
                     },
-                    "400":{
-                        "schema":{
-                            "$ref":"#/definitions/400"
+                    "400": {
+                        "schema": {
+                            "$ref": "#/definitions/400"
                         }
                     },
-                    "500":{
-                        "schema":{
-                            "$ref":"#/definitions/500"
+                    "500": {
+                        "schema": {
+                            "$ref": "#/definitions/500"
                         }
                     }
                 }
             }
         },
         "/sss-payment/contribution/payforprn/validate": {
-            "post":{
-                "tags":[
+            "post": {
+                "tags": [
                     "SSS Payment"
                 ],
-                "summary":"Pay for prn - validate",
-                "parameters":[
+                "summary": "Pay for prn - validate",
+                "parameters": [
                     {
-                        "name":"data",
-                        "in":"body",
-                        "schema":{
-                            "required":["*"],
-                            "properties":{
-                                "prn": {"type" : "string", "example": ""},
-                                "agentRefNo": {"type" : "string", "example": ""}
+                        "name": "data",
+                        "in": "body",
+                        "schema": {
+                            "required": [
+                                "*"
+                            ],
+                            "properties": {
+                                "prn": {
+                                    "type": "string",
+                                    "example": ""
+                                },
+                                "agentRefNo": {
+                                    "type": "string",
+                                    "example": ""
+                                }
                             }
                         }
                     }
                 ],
-                "produces":[
-                        "application/json"
-                    ],
-                "responses":{
-                    "200":{
-                        "schema":{
-                            "properties":{
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "schema": {
+                            "properties": {
                                 "status": "200",
                                 "message": "success",
                                 "data": {
@@ -592,45 +837,53 @@
                             }
                         }
                     },
-                    "400":{
-                        "schema":{
-                            "$ref":"#/definitions/400"
+                    "400": {
+                        "schema": {
+                            "$ref": "#/definitions/400"
                         }
                     },
-                    "500":{
-                        "schema":{
-                            "$ref":"#/definitions/500"
+                    "500": {
+                        "schema": {
+                            "$ref": "#/definitions/500"
                         }
                     }
                 }
             }
         },
         "/sss-payment/contribution/payforprn/process": {
-            "post":{
-                "tags":[
+            "post": {
+                "tags": [
                     "SSS Payment"
                 ],
-                "summary":"Pay for prn - process",
-                "parameters":[
+                "summary": "Pay for prn - process",
+                "parameters": [
                     {
-                        "name":"data",
-                        "in":"body",
-                        "schema":{
-                            "required":["*"],
-                            "properties":{
-                                "prn": {"type" : "string", "example": ""},
-                                "agentRefNo": {"type" : "string", "example": ""}
+                        "name": "data",
+                        "in": "body",
+                        "schema": {
+                            "required": [
+                                "*"
+                            ],
+                            "properties": {
+                                "prn": {
+                                    "type": "string",
+                                    "example": ""
+                                },
+                                "agentRefNo": {
+                                    "type": "string",
+                                    "example": ""
+                                }
                             }
                         }
                     }
                 ],
-                "produces":[
-                        "application/json"
-                    ],
-                "responses":{
-                    "200":{
-                        "schema":{
-                            "properties":{
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "schema": {
+                            "properties": {
                                 "status": "200",
                                 "message": "success",
                                 "data": {
@@ -640,44 +893,49 @@
                             }
                         }
                     },
-                    "400":{
-                        "schema":{
-                            "$ref":"#/definitions/400"
+                    "400": {
+                        "schema": {
+                            "$ref": "#/definitions/400"
                         }
                     },
-                    "500":{
-                        "schema":{
-                            "$ref":"#/definitions/500"
+                    "500": {
+                        "schema": {
+                            "$ref": "#/definitions/500"
                         }
                     }
                 }
             }
         },
         "/sss-payment/short-term-loan/searchbyrtplprn/validate": {
-            "post":{
-                "tags":[
+            "post": {
+                "tags": [
                     "SSS Payment"
                 ],
-                "summary":"search by rtpl prn - validate",
-                "parameters":[
+                "summary": "search by rtpl prn - validate",
+                "parameters": [
                     {
-                        "name":"data",
-                        "in":"body",
-                        "schema":{
-                            "required":["*"],
-                            "properties":{
-                                "prn": {"type" : "string", "example": ""}
+                        "name": "data",
+                        "in": "body",
+                        "schema": {
+                            "required": [
+                                "*"
+                            ],
+                            "properties": {
+                                "prn": {
+                                    "type": "string",
+                                    "example": ""
+                                }
                             }
                         }
                     }
                 ],
-                "produces":[
-                        "application/json"
-                    ],
-                "responses":{
-                    "200":{
-                        "schema":{
-                            "properties":{
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "schema": {
+                            "properties": {
                                 "status": "200",
                                 "message": "success",
                                 "data": {
@@ -687,44 +945,49 @@
                             }
                         }
                     },
-                    "400":{
-                        "schema":{
-                            "$ref":"#/definitions/400"
+                    "400": {
+                        "schema": {
+                            "$ref": "#/definitions/400"
                         }
                     },
-                    "500":{
-                        "schema":{
-                            "$ref":"#/definitions/500"
+                    "500": {
+                        "schema": {
+                            "$ref": "#/definitions/500"
                         }
                     }
                 }
             }
         },
         "/sss-payment/short-term-loan/searchbyrtplprn/process": {
-            "post":{
-                "tags":[
+            "post": {
+                "tags": [
                     "SSS Payment"
                 ],
-                "summary":"search by rtpl prn - process",
-                "parameters":[
+                "summary": "search by rtpl prn - process",
+                "parameters": [
                     {
-                        "name":"data",
-                        "in":"body",
-                        "schema":{
-                            "required":["*"],
-                            "properties":{
-                                "prn": {"type" : "string", "example": ""}
+                        "name": "data",
+                        "in": "body",
+                        "schema": {
+                            "required": [
+                                "*"
+                            ],
+                            "properties": {
+                                "prn": {
+                                    "type": "string",
+                                    "example": ""
+                                }
                             }
                         }
                     }
                 ],
-                "produces":[
-                        "application/json"
-                    ],
-                "responses":{
-                    "200":{
-                        "schema":{
-                            "properties":{
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "schema": {
+                            "properties": {
                                 "status": "200",
                                 "message": "success",
                                 "data": {
@@ -734,45 +997,53 @@
                             }
                         }
                     },
-                    "400":{
-                        "schema":{
-                            "$ref":"#/definitions/400"
+                    "400": {
+                        "schema": {
+                            "$ref": "#/definitions/400"
                         }
                     },
-                    "500":{
-                        "schema":{
-                            "$ref":"#/definitions/500"
+                    "500": {
+                        "schema": {
+                            "$ref": "#/definitions/500"
                         }
                     }
                 }
             }
         },
         "/sss-payment/short-term-loan/payforrtplprn/validate": {
-            "post":{
-                "tags":[
+            "post": {
+                "tags": [
                     "SSS Payment"
                 ],
-                "summary":"pay for rtpl prn - validate",
-                "parameters":[
+                "summary": "pay for rtpl prn - validate",
+                "parameters": [
                     {
-                        "name":"data",
-                        "in":"body",
-                        "schema":{
-                            "required":["*"],
-                            "properties":{
-                                "prn": {"type" : "string", "example": ""},
-                                "agentRefNo": {"type" : "string", "example": ""}
+                        "name": "data",
+                        "in": "body",
+                        "schema": {
+                            "required": [
+                                "*"
+                            ],
+                            "properties": {
+                                "prn": {
+                                    "type": "string",
+                                    "example": ""
+                                },
+                                "agentRefNo": {
+                                    "type": "string",
+                                    "example": ""
+                                }
                             }
                         }
                     }
                 ],
-                "produces":[
-                        "application/json"
-                    ],
-                "responses":{
-                    "200":{
-                        "schema":{
-                            "properties":{
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "schema": {
+                            "properties": {
                                 "status": "200",
                                 "message": "success",
                                 "data": {
@@ -782,45 +1053,53 @@
                             }
                         }
                     },
-                    "400":{
-                        "schema":{
-                            "$ref":"#/definitions/400"
+                    "400": {
+                        "schema": {
+                            "$ref": "#/definitions/400"
                         }
                     },
-                    "500":{
-                        "schema":{
-                            "$ref":"#/definitions/500"
+                    "500": {
+                        "schema": {
+                            "$ref": "#/definitions/500"
                         }
                     }
                 }
             }
         },
         "/sss-payment/short-term-loan/payforrtplprn/process": {
-            "post":{
-                "tags":[
+            "post": {
+                "tags": [
                     "SSS Payment"
                 ],
-                "summary":"pay for rtpl prn - process",
-                "parameters":[
+                "summary": "pay for rtpl prn - process",
+                "parameters": [
                     {
-                        "name":"data",
-                        "in":"body",
-                        "schema":{
-                            "required":["*"],
-                            "properties":{
-                                "prn": {"type" : "string", "example": ""},
-                                "agentRefNo": {"type" : "string", "example": ""}
+                        "name": "data",
+                        "in": "body",
+                        "schema": {
+                            "required": [
+                                "*"
+                            ],
+                            "properties": {
+                                "prn": {
+                                    "type": "string",
+                                    "example": ""
+                                },
+                                "agentRefNo": {
+                                    "type": "string",
+                                    "example": ""
+                                }
                             }
                         }
                     }
                 ],
-                "produces":[
-                        "application/json"
-                    ],
-                "responses":{
-                    "200":{
-                        "schema":{
-                            "properties":{
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "schema": {
+                            "properties": {
                                 "status": "200",
                                 "message": "success",
                                 "data": {
@@ -830,54 +1109,89 @@
                             }
                         }
                     },
-                    "400":{
-                        "schema":{
-                            "$ref":"#/definitions/400"
+                    "400": {
+                        "schema": {
+                            "$ref": "#/definitions/400"
                         }
                     },
-                    "500":{
-                        "schema":{
-                            "$ref":"#/definitions/500"
+                    "500": {
+                        "schema": {
+                            "$ref": "#/definitions/500"
                         }
                     }
                 }
             }
         },
         "/sss-payment/real-estate-loan/validate": {
-            "post":{
-                "tags":[
+            "post": {
+                "tags": [
                     "SSS Payment"
                 ],
-                "summary":"Real estate loan - validate",
-                "parameters":[
+                "summary": "Real estate loan - validate",
+                "parameters": [
                     {
-                        "name":"data",
-                        "in":"body",
-                        "schema":{
-                            "required":["*"],
-                            "properties":{
-                                "memberId": { "type": "string", "example":""},
-                                "lastName": { "type": "string", "example":""},
-                                "firstName": { "type": "string", "example":""},
-                                "middleName": { "type": "string", "example":""},
-                                "birthDate": { "type": "string", "example":""},
-                                "mobileNumber": { "type": "string", "example":""},
-                                "emailAddress": { "type": "string", "example":""},
-                                "memberType": { "type": "number", "example":""},
-                                "amount": { "type": "number", "example":""},
-                                "loanNumber": { "type": "string", "example":""},
-                                "agentRefNo": { "type": "string", "example":""}
+                        "name": "data",
+                        "in": "body",
+                        "schema": {
+                            "required": [
+                                "*"
+                            ],
+                            "properties": {
+                                "memberId": {
+                                    "type": "string",
+                                    "example": ""
+                                },
+                                "lastName": {
+                                    "type": "string",
+                                    "example": ""
+                                },
+                                "firstName": {
+                                    "type": "string",
+                                    "example": ""
+                                },
+                                "middleName": {
+                                    "type": "string",
+                                    "example": ""
+                                },
+                                "birthDate": {
+                                    "type": "string",
+                                    "example": ""
+                                },
+                                "mobileNumber": {
+                                    "type": "string",
+                                    "example": ""
+                                },
+                                "emailAddress": {
+                                    "type": "string",
+                                    "example": ""
+                                },
+                                "memberType": {
+                                    "type": "number",
+                                    "example": ""
+                                },
+                                "amount": {
+                                    "type": "number",
+                                    "example": ""
+                                },
+                                "loanNumber": {
+                                    "type": "string",
+                                    "example": ""
+                                },
+                                "agentRefNo": {
+                                    "type": "string",
+                                    "example": ""
+                                }
                             }
                         }
                     }
                 ],
-                "produces":[
-                        "application/json"
-                    ],
-                "responses":{
-                    "200":{
-                        "schema":{
-                            "properties":{
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "schema": {
+                            "properties": {
                                 "status": "200",
                                 "message": "success",
                                 "data": {
@@ -887,54 +1201,89 @@
                             }
                         }
                     },
-                    "400":{
-                        "schema":{
-                            "$ref":"#/definitions/400"
+                    "400": {
+                        "schema": {
+                            "$ref": "#/definitions/400"
                         }
                     },
-                    "500":{
-                        "schema":{
-                            "$ref":"#/definitions/500"
+                    "500": {
+                        "schema": {
+                            "$ref": "#/definitions/500"
                         }
                     }
                 }
             }
         },
         "/sss-payment/real-estate-loan/process": {
-            "post":{
-                "tags":[
+            "post": {
+                "tags": [
                     "SSS Payment"
                 ],
-                "summary":"Real estate loan - process",
-                "parameters":[
+                "summary": "Real estate loan - process",
+                "parameters": [
                     {
-                        "name":"data",
-                        "in":"body",
-                        "schema":{
-                            "required":["*"],
-                            "properties":{
-                                "memberId": { "type": "string", "example":""},
-                                "lastName": { "type": "string", "example":""},
-                                "firstName": { "type": "string", "example":""},
-                                "middleName": { "type": "string", "example":""},
-                                "birthDate": { "type": "string", "example":""},
-                                "mobileNumber": { "type": "string", "example":""},
-                                "emailAddress": { "type": "string", "example":""},
-                                "memberType": { "type": "number", "example":""},
-                                "amount": { "type": "number", "example":""},
-                                "loanNumber": { "type": "string", "example":""},
-                                "agentRefNo": { "type": "string", "example":""}
+                        "name": "data",
+                        "in": "body",
+                        "schema": {
+                            "required": [
+                                "*"
+                            ],
+                            "properties": {
+                                "memberId": {
+                                    "type": "string",
+                                    "example": ""
+                                },
+                                "lastName": {
+                                    "type": "string",
+                                    "example": ""
+                                },
+                                "firstName": {
+                                    "type": "string",
+                                    "example": ""
+                                },
+                                "middleName": {
+                                    "type": "string",
+                                    "example": ""
+                                },
+                                "birthDate": {
+                                    "type": "string",
+                                    "example": ""
+                                },
+                                "mobileNumber": {
+                                    "type": "string",
+                                    "example": ""
+                                },
+                                "emailAddress": {
+                                    "type": "string",
+                                    "example": ""
+                                },
+                                "memberType": {
+                                    "type": "number",
+                                    "example": ""
+                                },
+                                "amount": {
+                                    "type": "number",
+                                    "example": ""
+                                },
+                                "loanNumber": {
+                                    "type": "string",
+                                    "example": ""
+                                },
+                                "agentRefNo": {
+                                    "type": "string",
+                                    "example": ""
+                                }
                             }
                         }
                     }
                 ],
-                "produces":[
-                        "application/json"
-                    ],
-                "responses":{
-                    "200":{
-                        "schema":{
-                            "properties":{
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "schema": {
+                            "properties": {
                                 "status": "200",
                                 "message": "success",
                                 "data": {
@@ -944,54 +1293,89 @@
                             }
                         }
                     },
-                    "400":{
-                        "schema":{
-                            "$ref":"#/definitions/400"
+                    "400": {
+                        "schema": {
+                            "$ref": "#/definitions/400"
                         }
                     },
-                    "500":{
-                        "schema":{
-                            "$ref":"#/definitions/500"
+                    "500": {
+                        "schema": {
+                            "$ref": "#/definitions/500"
                         }
                     }
                 }
             }
         },
         "/sss-payment/miscellaneous/validate": {
-            "post":{
-                "tags":[
+            "post": {
+                "tags": [
                     "SSS Payment"
                 ],
-                "summary":"Miscellaneous payment - validate",
-                "parameters":[
+                "summary": "Miscellaneous payment - validate",
+                "parameters": [
                     {
-                        "name":"data",
-                        "in":"body",
-                        "schema":{
-                            "required":["*"],
-                            "properties":{
-                                "paymentType": { "type": "string", "example":""},
-                                "memberId": { "type": "string", "example":""},
-                                "lastName": { "type": "string", "example":""},
-                                "firstName": { "type": "string", "example":""},
-                                "middleName": { "type": "string", "example":""},
-                                "birthDate": { "type": "string", "example":""},
-                                "mobileNumber": { "type": "string", "example":""},
-                                "emailAddress": { "type": "string", "example":""},
-                                "memberType": { "type": "number", "example":""},
-                                "amount": { "type": "number", "example":""},
-                                "agentRefNo": { "type": "string", "example":""}
+                        "name": "data",
+                        "in": "body",
+                        "schema": {
+                            "required": [
+                                "*"
+                            ],
+                            "properties": {
+                                "paymentType": {
+                                    "type": "string",
+                                    "example": ""
+                                },
+                                "memberId": {
+                                    "type": "string",
+                                    "example": ""
+                                },
+                                "lastName": {
+                                    "type": "string",
+                                    "example": ""
+                                },
+                                "firstName": {
+                                    "type": "string",
+                                    "example": ""
+                                },
+                                "middleName": {
+                                    "type": "string",
+                                    "example": ""
+                                },
+                                "birthDate": {
+                                    "type": "string",
+                                    "example": ""
+                                },
+                                "mobileNumber": {
+                                    "type": "string",
+                                    "example": ""
+                                },
+                                "emailAddress": {
+                                    "type": "string",
+                                    "example": ""
+                                },
+                                "memberType": {
+                                    "type": "number",
+                                    "example": ""
+                                },
+                                "amount": {
+                                    "type": "number",
+                                    "example": ""
+                                },
+                                "agentRefNo": {
+                                    "type": "string",
+                                    "example": ""
+                                }
                             }
                         }
                     }
                 ],
-                "produces":[
-                        "application/json"
-                    ],
-                "responses":{
-                    "200":{
-                        "schema":{
-                            "properties":{
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "schema": {
+                            "properties": {
                                 "status": "200",
                                 "message": "success",
                                 "data": {
@@ -1001,54 +1385,89 @@
                             }
                         }
                     },
-                    "400":{
-                        "schema":{
-                            "$ref":"#/definitions/400"
+                    "400": {
+                        "schema": {
+                            "$ref": "#/definitions/400"
                         }
                     },
-                    "500":{
-                        "schema":{
-                            "$ref":"#/definitions/500"
+                    "500": {
+                        "schema": {
+                            "$ref": "#/definitions/500"
                         }
                     }
                 }
             }
         },
         "/sss-payment/miscellaneous/process": {
-            "post":{
-                "tags":[
+            "post": {
+                "tags": [
                     "SSS Payment"
                 ],
-                "summary":"Miscellaneous payment - process",
-                "parameters":[
+                "summary": "Miscellaneous payment - process",
+                "parameters": [
                     {
-                        "name":"data",
-                        "in":"body",
-                        "schema":{
-                            "required":["*"],
-                            "properties":{
-                                "paymentType": { "type": "string", "example":""},
-                                "memberId": { "type": "string", "example":""},
-                                "lastName": { "type": "string", "example":""},
-                                "firstName": { "type": "string", "example":""},
-                                "middleName": { "type": "string", "example":""},
-                                "birthDate": { "type": "string", "example":""},
-                                "mobileNumber": { "type": "string", "example":""},
-                                "emailAddress": { "type": "string", "example":""},
-                                "memberType": { "type": "number", "example":""},
-                                "amount": { "type": "number", "example":""},
-                                "agentRefNo": { "type": "string", "example":""}
+                        "name": "data",
+                        "in": "body",
+                        "schema": {
+                            "required": [
+                                "*"
+                            ],
+                            "properties": {
+                                "paymentType": {
+                                    "type": "string",
+                                    "example": ""
+                                },
+                                "memberId": {
+                                    "type": "string",
+                                    "example": ""
+                                },
+                                "lastName": {
+                                    "type": "string",
+                                    "example": ""
+                                },
+                                "firstName": {
+                                    "type": "string",
+                                    "example": ""
+                                },
+                                "middleName": {
+                                    "type": "string",
+                                    "example": ""
+                                },
+                                "birthDate": {
+                                    "type": "string",
+                                    "example": ""
+                                },
+                                "mobileNumber": {
+                                    "type": "string",
+                                    "example": ""
+                                },
+                                "emailAddress": {
+                                    "type": "string",
+                                    "example": ""
+                                },
+                                "memberType": {
+                                    "type": "number",
+                                    "example": ""
+                                },
+                                "amount": {
+                                    "type": "number",
+                                    "example": ""
+                                },
+                                "agentRefNo": {
+                                    "type": "string",
+                                    "example": ""
+                                }
                             }
                         }
                     }
                 ],
-                "produces":[
-                        "application/json"
-                    ],
-                "responses":{
-                    "200":{
-                        "schema":{
-                            "properties":{
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "schema": {
+                            "properties": {
                                 "status": "200",
                                 "message": "success",
                                 "data": {
@@ -1058,47 +1477,61 @@
                             }
                         }
                     },
-                    "400":{
-                        "schema":{
-                            "$ref":"#/definitions/400"
+                    "400": {
+                        "schema": {
+                            "$ref": "#/definitions/400"
                         }
                     },
-                    "500":{
-                        "schema":{
-                            "$ref":"#/definitions/500"
+                    "500": {
+                        "schema": {
+                            "$ref": "#/definitions/500"
                         }
                     }
                 }
             }
         },
         "/sss-payment/contribution/inquiry": {
-            "post":{
-                "tags":[
+            "post": {
+                "tags": [
                     "SSS Payment"
                 ],
-                "summary":"inquiry transaction contribution",
-                "parameters":[
+                "summary": "inquiry transaction contribution",
+                "parameters": [
                     {
-                        "name":"data",
-                        "in":"body",
-                        "schema":{
-                            "required":["*"],
-                            "properties":{
-                                "transactionNumber": {"type":"string", "example": ""},
-                                "referenceNumber": {"type":"string", "example": ""},
-                                "agentRefNo": {"type":"string", "example": ""},
-                                "dateEntry": {"type":"string", "example": ""}
+                        "name": "data",
+                        "in": "body",
+                        "schema": {
+                            "required": [
+                                "*"
+                            ],
+                            "properties": {
+                                "transactionNumber": {
+                                    "type": "string",
+                                    "example": ""
+                                },
+                                "referenceNumber": {
+                                    "type": "string",
+                                    "example": ""
+                                },
+                                "agentRefNo": {
+                                    "type": "string",
+                                    "example": ""
+                                },
+                                "dateEntry": {
+                                    "type": "string",
+                                    "example": ""
+                                }
                             }
                         }
                     }
                 ],
-                "produces":[
-                        "application/json"
-                    ],
-                "responses":{
-                    "200":{
-                        "schema":{
-                            "properties":{
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "schema": {
+                            "properties": {
                                 "status": "200",
                                 "message": "success",
                                 "data": {
@@ -1108,47 +1541,61 @@
                             }
                         }
                     },
-                    "400":{
-                        "schema":{
-                            "$ref":"#/definitions/400"
+                    "400": {
+                        "schema": {
+                            "$ref": "#/definitions/400"
                         }
                     },
-                    "500":{
-                        "schema":{
-                            "$ref":"#/definitions/500"
+                    "500": {
+                        "schema": {
+                            "$ref": "#/definitions/500"
                         }
                     }
                 }
             }
         },
         "/sss-payment/short-term-loan/inquiry": {
-            "post":{
-                "tags":[
+            "post": {
+                "tags": [
                     "SSS Payment"
                 ],
-                "summary":"inquiry transaction short-term-loan",
-                "parameters":[
+                "summary": "inquiry transaction short-term-loan",
+                "parameters": [
                     {
-                        "name":"data",
-                        "in":"body",
-                        "schema":{
-                            "required":["*"],
-                            "properties":{
-                                "transactionNumber": {"type":"string", "example": ""},
-                                "referenceNumber": {"type":"string", "example": ""},
-                                "agentRefNo": {"type":"string", "example": ""},
-                                "dateEntry": {"type":"string", "example": ""}
+                        "name": "data",
+                        "in": "body",
+                        "schema": {
+                            "required": [
+                                "*"
+                            ],
+                            "properties": {
+                                "transactionNumber": {
+                                    "type": "string",
+                                    "example": ""
+                                },
+                                "referenceNumber": {
+                                    "type": "string",
+                                    "example": ""
+                                },
+                                "agentRefNo": {
+                                    "type": "string",
+                                    "example": ""
+                                },
+                                "dateEntry": {
+                                    "type": "string",
+                                    "example": ""
+                                }
                             }
                         }
                     }
                 ],
-                "produces":[
-                        "application/json"
-                    ],
-                "responses":{
-                    "200":{
-                        "schema":{
-                            "properties":{
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "schema": {
+                            "properties": {
                                 "status": "200",
                                 "message": "success",
                                 "data": {
@@ -1158,47 +1605,61 @@
                             }
                         }
                     },
-                    "400":{
-                        "schema":{
-                            "$ref":"#/definitions/400"
+                    "400": {
+                        "schema": {
+                            "$ref": "#/definitions/400"
                         }
                     },
-                    "500":{
-                        "schema":{
-                            "$ref":"#/definitions/500"
+                    "500": {
+                        "schema": {
+                            "$ref": "#/definitions/500"
                         }
                     }
                 }
             }
         },
         "/sss-payment/real-estate-loan/inquiry": {
-            "post":{
-                "tags":[
+            "post": {
+                "tags": [
                     "SSS Payment"
                 ],
-                "summary":"inquiry transaction real-estate-loan",
-                "parameters":[
+                "summary": "inquiry transaction real-estate-loan",
+                "parameters": [
                     {
-                        "name":"data",
-                        "in":"body",
-                        "schema":{
-                            "required":["*"],
-                            "properties":{
-                                "transactionNumber": {"type":"string", "example": ""},
-                                "referenceNumber": {"type":"string", "example": ""},
-                                "agentRefNo": {"type":"string", "example": ""},
-                                "dateEntry": {"type":"string", "example": ""}
+                        "name": "data",
+                        "in": "body",
+                        "schema": {
+                            "required": [
+                                "*"
+                            ],
+                            "properties": {
+                                "transactionNumber": {
+                                    "type": "string",
+                                    "example": ""
+                                },
+                                "referenceNumber": {
+                                    "type": "string",
+                                    "example": ""
+                                },
+                                "agentRefNo": {
+                                    "type": "string",
+                                    "example": ""
+                                },
+                                "dateEntry": {
+                                    "type": "string",
+                                    "example": ""
+                                }
                             }
                         }
                     }
                 ],
-                "produces":[
-                        "application/json"
-                    ],
-                "responses":{
-                    "200":{
-                        "schema":{
-                            "properties":{
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "schema": {
+                            "properties": {
                                 "status": "200",
                                 "message": "success",
                                 "data": {
@@ -1208,47 +1669,61 @@
                             }
                         }
                     },
-                    "400":{
-                        "schema":{
-                            "$ref":"#/definitions/400"
+                    "400": {
+                        "schema": {
+                            "$ref": "#/definitions/400"
                         }
                     },
-                    "500":{
-                        "schema":{
-                            "$ref":"#/definitions/500"
+                    "500": {
+                        "schema": {
+                            "$ref": "#/definitions/500"
                         }
                     }
                 }
             }
         },
         "/sss-payment/miscellaneous/inquiry": {
-            "post":{
-                "tags":[
+            "post": {
+                "tags": [
                     "SSS Payment"
                 ],
-                "summary":"inquiry transaction miscellaneous",
-                "parameters":[
+                "summary": "inquiry transaction miscellaneous",
+                "parameters": [
                     {
-                        "name":"data",
-                        "in":"body",
-                        "schema":{
-                            "required":["*"],
-                            "properties":{
-                                "transactionNumber": {"type":"string", "example": ""},
-                                "referenceNumber": {"type":"string", "example": ""},
-                                "agentRefNo": {"type":"string", "example": ""},
-                                "dateEntry": {"type":"string", "example": ""}
+                        "name": "data",
+                        "in": "body",
+                        "schema": {
+                            "required": [
+                                "*"
+                            ],
+                            "properties": {
+                                "transactionNumber": {
+                                    "type": "string",
+                                    "example": ""
+                                },
+                                "referenceNumber": {
+                                    "type": "string",
+                                    "example": ""
+                                },
+                                "agentRefNo": {
+                                    "type": "string",
+                                    "example": ""
+                                },
+                                "dateEntry": {
+                                    "type": "string",
+                                    "example": ""
+                                }
                             }
                         }
                     }
                 ],
-                "produces":[
-                        "application/json"
-                    ],
-                "responses":{
-                    "200":{
-                        "schema":{
-                            "properties":{
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "schema": {
+                            "properties": {
                                 "status": "200",
                                 "message": "success",
                                 "data": {
@@ -1258,46 +1733,57 @@
                             }
                         }
                     },
-                    "400":{
-                        "schema":{
-                            "$ref":"#/definitions/400"
+                    "400": {
+                        "schema": {
+                            "$ref": "#/definitions/400"
                         }
                     },
-                    "500":{
-                        "schema":{
-                            "$ref":"#/definitions/500"
+                    "500": {
+                        "schema": {
+                            "$ref": "#/definitions/500"
                         }
                     }
                 }
             }
         },
         "/sss-payment/real-estate-loan/cancel": {
-            "post":{
-                "tags":[
+            "post": {
+                "tags": [
                     "SSS Payment"
                 ],
-                "summary":"cancel transaction real-estate-loan",
-                "parameters":[
+                "summary": "cancel transaction real-estate-loan",
+                "parameters": [
                     {
-                        "name":"data",
-                        "in":"body",
-                        "schema":{
-                            "required":["*"],
-                            "properties":{
-                                "transactionNumber": {"type":"string", "example": ""},
-                                "referenceNumber": {"type":"string", "example": ""},
-                                "agentRefNo": {"type":"string", "example": ""}
+                        "name": "data",
+                        "in": "body",
+                        "schema": {
+                            "required": [
+                                "*"
+                            ],
+                            "properties": {
+                                "transactionNumber": {
+                                    "type": "string",
+                                    "example": ""
+                                },
+                                "referenceNumber": {
+                                    "type": "string",
+                                    "example": ""
+                                },
+                                "agentRefNo": {
+                                    "type": "string",
+                                    "example": ""
+                                }
                             }
                         }
                     }
                 ],
-                "produces":[
-                        "application/json"
-                    ],
-                "responses":{
-                    "200":{
-                        "schema":{
-                            "properties":{
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "schema": {
+                            "properties": {
                                 "status": "200",
                                 "message": "success",
                                 "data": {
@@ -1307,46 +1793,57 @@
                             }
                         }
                     },
-                    "400":{
-                        "schema":{
-                            "$ref":"#/definitions/400"
+                    "400": {
+                        "schema": {
+                            "$ref": "#/definitions/400"
                         }
                     },
-                    "500":{
-                        "schema":{
-                            "$ref":"#/definitions/500"
+                    "500": {
+                        "schema": {
+                            "$ref": "#/definitions/500"
                         }
                     }
                 }
             }
         },
         "/sss-payment/miscellaneous/cancel": {
-            "post":{
-                "tags":[
+            "post": {
+                "tags": [
                     "SSS Payment"
                 ],
-                "summary":"cancel transaction miscellaneous",
-                "parameters":[
+                "summary": "cancel transaction miscellaneous",
+                "parameters": [
                     {
-                        "name":"data",
-                        "in":"body",
-                        "schema":{
-                            "required":["*"],
-                            "properties":{
-                                "transactionNumber": {"type":"string", "example": ""},
-                                "referenceNumber": {"type":"string", "example": ""},
-                                "agentRefNo": {"type":"string", "example": ""}
+                        "name": "data",
+                        "in": "body",
+                        "schema": {
+                            "required": [
+                                "*"
+                            ],
+                            "properties": {
+                                "transactionNumber": {
+                                    "type": "string",
+                                    "example": ""
+                                },
+                                "referenceNumber": {
+                                    "type": "string",
+                                    "example": ""
+                                },
+                                "agentRefNo": {
+                                    "type": "string",
+                                    "example": ""
+                                }
                             }
                         }
                     }
                 ],
-                "produces":[
-                        "application/json"
-                    ],
-                "responses":{
-                    "200":{
-                        "schema":{
-                            "properties":{
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "schema": {
+                            "properties": {
                                 "status": "200",
                                 "message": "success",
                                 "data": {
@@ -1356,54 +1853,1739 @@
                             }
                         }
                     },
-                    "400":{
-                        "schema":{
-                            "$ref":"#/definitions/400"
+                    "400": {
+                        "schema": {
+                            "$ref": "#/definitions/400"
                         }
                     },
-                    "500":{
-                        "schema":{
-                            "$ref":"#/definitions/500"
+                    "500": {
+                        "schema": {
+                            "$ref": "#/definitions/500"
+                        }
+                    }
+                }
+            }
+        },
+        "/ibg/validate-payment": {
+            "post": {
+                "tags": [
+                    "Ibg-Payment"
+                ],
+                "summary": "Validate payment transaction",
+                "parameters": [
+                    {
+                        "name": "data",
+                        "in": "body",
+                        "schema": {
+                            "required": [
+                                "*"
+                            ],
+                            "properties": {
+                                "memberId": {
+                                    "type": "string",
+                                    "example": "010501525338"
+                                },
+                                "lastName": {
+                                    "type": "string",
+                                    "example": "CRUZ"
+                                },
+                                "firstName": {
+                                    "type": "string",
+                                    "example": "JUAN"
+                                },
+                                "middleName": {
+                                    "type": "string",
+                                    "example": "DELA"
+                                },
+                                "birthDate": {
+                                    "type": "string",
+                                    "example": "1980-01-01"
+                                },
+                                "mobileNumber": {
+                                    "type": "string",
+                                    "example": ""
+                                },
+                                "emailAddress": {
+                                    "type": "string",
+                                    "example": "juan.delacruz@email.com"
+                                },
+                                "memberType": {
+                                    "type": "number",
+                                    "example": 0
+                                },
+                                "amount": {
+                                    "type": "number",
+                                    "example": 240.0
+                                },
+                                "startMonth": {
+                                    "type": "number",
+                                    "example": 2021
+                                },
+                                "startYear": {
+                                    "type": "number",
+                                    "example": 4
+                                },
+                                "endYear": {
+                                    "type": "number",
+                                    "example": 2021
+                                },
+                                "endMonth": {
+                                    "type": "number",
+                                    "example": 6
+                                },
+                                "agentRefNo": {
+                                    "type": "string",
+                                    "example": "A1234"
+                                }
+                            }
+                        }
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "schema": {
+                            "properties": {
+                                "transactionNumber": {
+                                    "example": "string"
+                                },
+                                "referenceNumber": {
+                                    "example": "string"
+                                },
+                                "dateEntry": {
+                                    "example": "yyyy-MM-ddTHH:mm:ss"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "schema": {
+                            "$ref": "#/definitions/400"
+                        }
+                    },
+                    "500": {
+                        "schema": {
+                            "$ref": "#/definitions/500"
+                        }
+                    }
+                }
+            }
+        },
+        "/ibg/process-payment": {
+            "post": {
+                "tags": [
+                    "Ibg-Payment"
+                ],
+                "summary": "Validate payment transaction",
+                "parameters": [
+                    {
+                        "name": "data",
+                        "in": "body",
+                        "schema": {
+                            "required": [
+                                "*"
+                            ],
+                            "properties": {
+                                "memberId": {
+                                    "type": "string",
+                                    "example": "010501525338"
+                                },
+                                "lastName": {
+                                    "type": "string",
+                                    "example": "CRUZ"
+                                },
+                                "firstName": {
+                                    "type": "string",
+                                    "example": "JUAN"
+                                },
+                                "middleName": {
+                                    "type": "string",
+                                    "example": "DELA"
+                                },
+                                "birthDate": {
+                                    "type": "string",
+                                    "example": "1980-01-01"
+                                },
+                                "mobileNumber": {
+                                    "type": "string",
+                                    "example": ""
+                                },
+                                "emailAddress": {
+                                    "type": "string",
+                                    "example": "juan.delacruz@email.com"
+                                },
+                                "memberType": {
+                                    "type": "number",
+                                    "example": 0
+                                },
+                                "amount": {
+                                    "type": "number",
+                                    "example": 240.0
+                                },
+                                "startMonth": {
+                                    "type": "number",
+                                    "example": 2021
+                                },
+                                "startYear": {
+                                    "type": "number",
+                                    "example": 4
+                                },
+                                "endYear": {
+                                    "type": "number",
+                                    "example": 2021
+                                },
+                                "endMonth": {
+                                    "type": "number",
+                                    "example": 6
+                                },
+                                "agentRefNo": {
+                                    "type": "string",
+                                    "example": "A1234"
+                                }
+                            }
+                        }
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "schema": {
+                            "properties": {
+                                "transactionNumber": {
+                                    "example": "string"
+                                },
+                                "referenceNumber": {
+                                    "example": "string"
+                                },
+                                "dateEntry": {
+                                    "example": "yyyy-MM-ddTHH:mm:ss"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "schema": {
+                            "$ref": "#/definitions/400"
+                        }
+                    },
+                    "500": {
+                        "schema": {
+                            "$ref": "#/definitions/500"
+                        }
+                    }
+                }
+            }
+        },
+        "/ibg/validate-short-term-loan": {
+            "post": {
+                "tags": [
+                    "Ibg-Payment"
+                ],
+                "summary": "Validate short term loan",
+                "parameters": [
+                    {
+                        "name": "data",
+                        "in": "body",
+                        "schema": {
+                            "required": [
+                                "*"
+                            ],
+                            "properties": {
+                                "memberId": {
+                                    "type": "string",
+                                    "example": "121074345129"
+                                },
+                                "lastName": {
+                                    "type": "string",
+                                    "example": "ROCHE"
+                                },
+                                "firstName": {
+                                    "type": "string",
+                                    "example": "EMILY"
+                                },
+                                "middleName": {
+                                    "type": "string",
+                                    "example": "ARAGON"
+                                },
+                                "birthDate": {
+                                    "type": "string",
+                                    "example": "1978-01-01"
+                                },
+                                "mobileNumber": {
+                                    "type": "string",
+                                    "example": ""
+                                },
+                                "emailAddress": {
+                                    "type": "string",
+                                    "example": "juan.delacruz@email.com"
+                                },
+                                "memberType": {
+                                    "type": "number",
+                                    "example": 0
+                                },
+                                "amount": {
+                                    "type": "number",
+                                    "example": 100.0
+                                },
+                                "agentRefNo": {
+                                    "type": "string",
+                                    "example": "A1234"
+                                }
+                            }
+                        }
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "schema": {
+                            "properties": {
+                                "transactionNumber": {
+                                    "example": "string"
+                                },
+                                "referenceNumber": {
+                                    "example": "string"
+                                },
+                                "dateEntry": {
+                                    "example": "yyyy-MM-ddTHH:mm:ss"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "schema": {
+                            "$ref": "#/definitions/400"
+                        }
+                    },
+                    "500": {
+                        "schema": {
+                            "$ref": "#/definitions/500"
+                        }
+                    }
+                }
+            }
+        },
+        "/ibg/process-short-term-loan": {
+            "post": {
+                "tags": [
+                    "Ibg-Payment"
+                ],
+                "summary": "Process short term loan",
+                "parameters": [
+                    {
+                        "name": "data",
+                        "in": "body",
+                        "schema": {
+                            "required": [
+                                "*"
+                            ],
+                            "properties": {
+                                "memberId": {
+                                    "type": "string",
+                                    "example": "121074345129"
+                                },
+                                "lastName": {
+                                    "type": "string",
+                                    "example": "ROCHE"
+                                },
+                                "firstName": {
+                                    "type": "string",
+                                    "example": "EMILY"
+                                },
+                                "middleName": {
+                                    "type": "string",
+                                    "example": "ARAGON"
+                                },
+                                "birthDate": {
+                                    "type": "string",
+                                    "example": "1978-01-01"
+                                },
+                                "mobileNumber": {
+                                    "type": "string",
+                                    "example": ""
+                                },
+                                "emailAddress": {
+                                    "type": "string",
+                                    "example": "juan.delacruz@email.com"
+                                },
+                                "amount": {
+                                    "type": "number",
+                                    "example": 100.0
+                                },
+                                "agentRefNo": {
+                                    "type": "string",
+                                    "example": "A1234"
+                                }
+                            }
+                        }
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "schema": {
+                            "properties": {
+                                "transactionNumber": {
+                                    "example": "string"
+                                },
+                                "referenceNumber": {
+                                    "example": "string"
+                                },
+                                "dateEntry": {
+                                    "example": "yyyy-MM-ddTHH:mm:ss"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "schema": {
+                            "$ref": "#/definitions/400"
+                        }
+                    },
+                    "500": {
+                        "schema": {
+                            "$ref": "#/definitions/500"
+                        }
+                    }
+                }
+            }
+        },
+        "/ibg/validate-housing-loan": {
+            "post": {
+                "tags": [
+                    "Ibg-Payment"
+                ],
+                "summary": "Process Housing loan",
+                "parameters": [
+                    {
+                        "name": "data",
+                        "in": "body",
+                        "schema": {
+                            "required": [
+                                "*"
+                            ],
+                            "properties": {
+                                "memberId": {
+                                    "type": "string",
+                                    "example": "121074345129"
+                                },
+                                "lastName": {
+                                    "type": "string",
+                                    "example": "ROCHE"
+                                },
+                                "firstName": {
+                                    "type": "string",
+                                    "example": "EMILY"
+                                },
+                                "middleName": {
+                                    "type": "string",
+                                    "example": "ARAGON"
+                                },
+                                "birthDate": {
+                                    "type": "string",
+                                    "example": "1978-01-01"
+                                },
+                                "mobileNumber": {
+                                    "type": "string",
+                                    "example": ""
+                                },
+                                "emailAddress": {
+                                    "type": "string",
+                                    "example": "juan.delacruz@email.com"
+                                },
+                                "memberType": {
+                                    "type": "number",
+                                    "example": 0
+                                },
+                                "amount": {
+                                    "type": "number",
+                                    "example": 100.0
+                                },
+                                "startMonth": {
+                                    "type": "number",
+                                    "example": 2021
+                                },
+                                "startYear": {
+                                    "type": "number",
+                                    "example": 4
+                                },
+                                "endYear": {
+                                    "type": "number",
+                                    "example": 2021
+                                },
+                                "endMonth": {
+                                    "type": "number",
+                                    "example": 6
+                                },
+                                "agentRefNo": {
+                                    "type": "string",
+                                    "example": "A1234"
+                                }
+                            }
+                        }
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "schema": {
+                            "properties": {
+                                "transactionNumber": {
+                                    "example": "string"
+                                },
+                                "referenceNumber": {
+                                    "example": "string"
+                                },
+                                "dateEntry": {
+                                    "example": "yyyy-MM-ddTHH:mm:ss"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "schema": {
+                            "$ref": "#/definitions/400"
+                        }
+                    },
+                    "500": {
+                        "schema": {
+                            "$ref": "#/definitions/500"
+                        }
+                    }
+                }
+            }
+        },
+        "/ibg/process-housing-loan": {
+            "post": {
+                "tags": [
+                    "Ibg-Payment"
+                ],
+                "summary": "Process Housing loan",
+                "parameters": [
+                    {
+                        "name": "data",
+                        "in": "body",
+                        "schema": {
+                            "required": [
+                                "*"
+                            ],
+                            "properties": {
+                                "memberId": {
+                                    "type": "string",
+                                    "example": "121074345129"
+                                },
+                                "lastName": {
+                                    "type": "string",
+                                    "example": "ROCHE"
+                                },
+                                "firstName": {
+                                    "type": "string",
+                                    "example": "EMILY"
+                                },
+                                "middleName": {
+                                    "type": "string",
+                                    "example": "ARAGON"
+                                },
+                                "birthDate": {
+                                    "type": "string",
+                                    "example": "1978-01-01"
+                                },
+                                "mobileNumber": {
+                                    "type": "string",
+                                    "example": ""
+                                },
+                                "emailAddress": {
+                                    "type": "string",
+                                    "example": "juan.delacruz@email.com"
+                                },
+                                "memberType": {
+                                    "type": "number",
+                                    "example": 0
+                                },
+                                "amount": {
+                                    "type": "number",
+                                    "example": 100.0
+                                },
+                                "startMonth": {
+                                    "type": "number",
+                                    "example": 2021
+                                },
+                                "startYear": {
+                                    "type": "number",
+                                    "example": 4
+                                },
+                                "endYear": {
+                                    "type": "number",
+                                    "example": 2021
+                                },
+                                "endMonth": {
+                                    "type": "number",
+                                    "example": 6
+                                },
+                                "agentRefNo": {
+                                    "type": "string",
+                                    "example": "A1234"
+                                }
+                            }
+                        }
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "schema": {
+                            "properties": {
+                                "transactionNumber": {
+                                    "example": "string"
+                                },
+                                "referenceNumber": {
+                                    "example": "string"
+                                },
+                                "dateEntry": {
+                                    "example": "yyyy-MM-ddTHH:mm:ss"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "schema": {
+                            "$ref": "#/definitions/400"
+                        }
+                    },
+                    "500": {
+                        "schema": {
+                            "$ref": "#/definitions/500"
+                        }
+                    }
+                }
+            }
+        },
+        "/ibg/payment-transaction-inquiry": {
+            "post": {
+                "tags": [
+                    "Ibg-Payment"
+                ],
+                "summary": "Payment inquiry",
+                "parameters": [
+                    {
+                        "name": "data",
+                        "in": "body",
+                        "schema": {
+                            "required": [
+                                "*"
+                            ],
+                            "properties": {
+                                "transactionNumber": {
+                                    "type": "string",
+                                    "example": "PagIbig-13202103-000018"
+                                },
+                                "referenceNumber": {
+                                    "type": "string",
+                                    "example": "210790067139030"
+                                },
+                                "agentRefNo": {
+                                    "type": "string",
+                                    "example": "A12345"
+                                }
+                            }
+                        }
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "schema": {
+                            "properties": {
+                                "transactionNumber": {
+                                    "example": "string"
+                                },
+                                "referenceNumber": {
+                                    "example": "string"
+                                },
+                                "dateEntry": {
+                                    "example": "yyyy-MM-ddTHH:mm:ss"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "schema": {
+                            "$ref": "#/definitions/400"
+                        }
+                    },
+                    "500": {
+                        "schema": {
+                            "$ref": "#/definitions/500"
+                        }
+                    }
+                }
+            }
+        },
+        "/ibg/short-term-loan-transaction-inquiry": {
+            "post": {
+                "tags": [
+                    "Ibg-Payment"
+                ],
+                "summary": "Payment inquiry",
+                "parameters": [
+                    {
+                        "name": "data",
+                        "in": "body",
+                        "schema": {
+                            "required": [
+                                "*"
+                            ],
+                            "properties": {
+                                "transactionNumber": {
+                                    "type": "string",
+                                    "example": "PagIbig-13202103-000018"
+                                },
+                                "referenceNumber": {
+                                    "type": "string",
+                                    "example": "210790067139030"
+                                },
+                                "agentRefNo": {
+                                    "type": "string",
+                                    "example": "A12345"
+                                }
+                            }
+                        }
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "schema": {
+                            "properties": {
+                                "transactionNumber": {
+                                    "example": "string"
+                                },
+                                "referenceNumber": {
+                                    "example": "string"
+                                },
+                                "dateEntry": {
+                                    "example": "yyyy-MM-ddTHH:mm:ss"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "schema": {
+                            "$ref": "#/definitions/400"
+                        }
+                    },
+                    "500": {
+                        "schema": {
+                            "$ref": "#/definitions/500"
+                        }
+                    }
+                }
+            }
+        },
+        "/ibg/housing-loan-transaction-inquiry": {
+            "post": {
+                "tags": [
+                    "Ibg-Payment"
+                ],
+                "summary": "Payment inquiry",
+                "parameters": [
+                    {
+                        "name": "data",
+                        "in": "body",
+                        "schema": {
+                            "required": [
+                                "*"
+                            ],
+                            "properties": {
+                                "transactionNumber": {
+                                    "type": "string",
+                                    "example": "PagIbig-13202103-000018"
+                                },
+                                "referenceNumber": {
+                                    "type": "string",
+                                    "example": "210790067139030"
+                                },
+                                "agentRefNo": {
+                                    "type": "string",
+                                    "example": "A12345"
+                                }
+                            }
+                        }
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "schema": {
+                            "properties": {
+                                "transactionNumber": {
+                                    "example": "string"
+                                },
+                                "referenceNumber": {
+                                    "example": "string"
+                                },
+                                "dateEntry": {
+                                    "example": "yyyy-MM-ddTHH:mm:ss"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "schema": {
+                            "$ref": "#/definitions/400"
+                        }
+                    },
+                    "500": {
+                        "schema": {
+                            "$ref": "#/definitions/500"
+                        }
+                    }
+                }
+            }
+        },
+        "/ibg/cancel-payment": {
+            "post": {
+                "tags": [
+                    "Ibg-Payment"
+                ],
+                "summary": "Cancel payment",
+                "parameters": [
+                    {
+                        "name": "data",
+                        "in": "body",
+                        "schema": {
+                            "required": [
+                                "*"
+                            ],
+                            "properties": {
+                                "transactionNumber": {
+                                    "type": "string",
+                                    "example": "PagIbig-13202103-000018"
+                                },
+                                "referenceNumber": {
+                                    "type": "string",
+                                    "example": "210790067139030"
+                                },
+                                "agentRefNo": {
+                                    "type": "string",
+                                    "example": "A12345"
+                                }
+                            }
+                        }
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "schema": {
+                            "properties": {
+                                "transactionNumber": {
+                                    "example": "string"
+                                },
+                                "referenceNumber": {
+                                    "example": "string"
+                                },
+                                "dateEntry": {
+                                    "example": "yyyy-MM-ddTHH:mm:ss"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "schema": {
+                            "$ref": "#/definitions/400"
+                        }
+                    },
+                    "500": {
+                        "schema": {
+                            "$ref": "#/definitions/500"
+                        }
+                    }
+                }
+            }
+        },
+        "/ibg/cancel-short-term-loan": {
+            "post": {
+                "tags": [
+                    "Ibg-Payment"
+                ],
+                "summary": "cancel short term loan",
+                "parameters": [
+                    {
+                        "name": "data",
+                        "in": "body",
+                        "schema": {
+                            "required": [
+                                "*"
+                            ],
+                            "properties": {
+                                "transactionNumber": {
+                                    "type": "string",
+                                    "example": "PagIbig-13202103-000018"
+                                },
+                                "referenceNumber": {
+                                    "type": "string",
+                                    "example": "210790067139030"
+                                },
+                                "agentRefNo": {
+                                    "type": "string",
+                                    "example": "A12345"
+                                }
+                            }
+                        }
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "schema": {
+                            "properties": {
+                                "transactionNumber": {
+                                    "example": "string"
+                                },
+                                "referenceNumber": {
+                                    "example": "string"
+                                },
+                                "dateEntry": {
+                                    "example": "yyyy-MM-ddTHH:mm:ss"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "schema": {
+                            "$ref": "#/definitions/400"
+                        }
+                    },
+                    "500": {
+                        "schema": {
+                            "$ref": "#/definitions/500"
+                        }
+                    }
+                }
+            }
+        },
+        "/ibg/cancel-housing-loan": {
+            "post": {
+                "tags": [
+                    "Ibg-Payment"
+                ],
+                "summary": "cancel housing loan",
+                "parameters": [
+                    {
+                        "name": "data",
+                        "in": "body",
+                        "schema": {
+                            "required": [
+                                "*"
+                            ],
+                            "properties": {
+                                "transactionNumber": {
+                                    "type": "string",
+                                    "example": "PagIbig-13202103-000018"
+                                },
+                                "referenceNumber": {
+                                    "type": "string",
+                                    "example": "210790067139030"
+                                },
+                                "agentRefNo": {
+                                    "type": "string",
+                                    "example": "A12345"
+                                }
+                            }
+                        }
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "schema": {
+                            "properties": {
+                                "transactionNumber": {
+                                    "example": "string"
+                                },
+                                "referenceNumber": {
+                                    "example": "string"
+                                },
+                                "dateEntry": {
+                                    "example": "yyyy-MM-ddTHH:mm:ss"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "schema": {
+                            "$ref": "#/definitions/400"
+                        }
+                    },
+                    "500": {
+                        "schema": {
+                            "$ref": "#/definitions/500"
+                        }
+                    }
+                }
+            }
+        },
+        "/bill-payment/outlet-balance": {
+            "post": {
+                "tags": [
+                    "Bill Payment"
+                ],
+                "summary": "Outlet balance of bill payment",
+                "parameters": [
+                    {
+                        "name": "data",
+                        "in": "body",
+                        "schema": {
+                            "required": [
+                                "*"
+                            ]
+                        }
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "schema": {
+                            "properties": {
+                                "status": "200",
+                                "message": "success",
+                                "data": {
+                                    "statusCode": "",
+                                    "data": ""
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "schema": {
+                            "$ref": "#/definitions/400"
+                        }
+                    },
+                    "500": {
+                        "schema": {
+                            "$ref": "#/definitions/500"
+                        }
+                    }
+                }
+            }
+        },
+        "/bill-payment/validate-topup": {
+            "post": {
+                "tags": [
+                    "Bill Payment"
+                ],
+                "summary": "bill payment validate topup",
+                "parameters": [
+                    {
+                        "name": "data",
+                        "in": "body",
+                        "schema": {
+                            "required": [
+                                "*"
+                            ],
+                            "properties": {
+                                "payremitNo": {
+                                    "type": "string",
+                                    "example": "1017108390499970"
+                                },
+                                "amount": {
+                                    "type": "number",
+                                    "example": 1000.0
+                                },
+                                "currencyCode": {
+                                    "type": "string",
+                                    "example": "PHP"
+                                },
+                                "agentRefNo": {
+                                    "type": "string",
+                                    "example": "A1234"
+                                }
+                            }
+                        }
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "schema": {
+                            "properties": {
+                                "status": "200",
+                                "message": "success",
+                                "data": {
+                                    "statusCode": "",
+                                    "data": ""
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "schema": {
+                            "$ref": "#/definitions/400"
+                        }
+                    },
+                    "500": {
+                        "schema": {
+                            "$ref": "#/definitions/500"
+                        }
+                    }
+                }
+            }
+        },
+        "/bill-payment/process-topup": {
+            "post": {
+                "tags": [
+                    "Bill Payment"
+                ],
+                "summary": "bill payment process topup",
+                "parameters": [
+                    {
+                        "name": "data",
+                        "in": "body",
+                        "schema": {
+                            "required": [
+                                "*"
+                            ],
+                            "properties": {
+                                "payremitNo": {
+                                    "type": "string",
+                                    "example": "1017108390499970"
+                                },
+                                "amount": {
+                                    "type": "number",
+                                    "example": 1000.0
+                                },
+                                "currencyCode": {
+                                    "type": "string",
+                                    "example": "PHP"
+                                },
+                                "agentRefNo": {
+                                    "type": "string",
+                                    "example": "A1234"
+                                }
+                            }
+                        }
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "schema": {
+                            "properties": {
+                                "status": "200",
+                                "message": "success",
+                                "data": {
+                                    "statusCode": "",
+                                    "data": ""
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "schema": {
+                            "$ref": "#/definitions/400"
+                        }
+                    },
+                    "500": {
+                        "schema": {
+                            "$ref": "#/definitions/500"
+                        }
+                    }
+                }
+            }
+        },
+        "/bill-payment/topup-transaction-inquiry": {
+            "post": {
+                "tags": [
+                    "Bill Payment"
+                ],
+                "summary": "bill payment topup transaction inquiry",
+                "parameters": [
+                    {
+                        "name": "data",
+                        "in": "body",
+                        "schema": {
+                            "required": [
+                                "*"
+                            ],
+                            "properties": {
+                                "transactionNumber": {
+                                    "type": "string",
+                                    "example": "PRT-13202010-000001"
+                                },
+                                "referenceNumber": {
+                                    "type": "string",
+                                    "example": "TU-202010000001"
+                                },
+                                "agentRefNo": {
+                                    "type": "string",
+                                    "example": "A1234"
+                                }
+                            }
+                        }
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "schema": {
+                            "properties": {
+                                "status": "200",
+                                "message": "success",
+                                "data": {
+                                    "statusCode": "",
+                                    "data": ""
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "schema": {
+                            "$ref": "#/definitions/400"
+                        }
+                    },
+                    "500": {
+                        "schema": {
+                            "$ref": "#/definitions/500"
+                        }
+                    }
+                }
+            }
+        },
+        "/bill-payment/process-reservation-detail": {
+            "post": {
+                "tags": [
+                    "Bill Payment"
+                ],
+                "summary": "bill payment process reservation detail",
+                "parameters": [
+                    {
+                        "name": "data",
+                        "in": "body",
+                        "schema": {
+                            "required": [
+                                "*"
+                            ],
+                            "properties": {
+                                "reservationNumber": {
+                                    "type": "string",
+                                    "example": "RN-202007000011"
+                                }
+                            }
+                        }
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "schema": {
+                            "properties": {
+                                "status": "200",
+                                "message": "success",
+                                "data": {
+                                    "statusCode": "",
+                                    "data": ""
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "schema": {
+                            "$ref": "#/definitions/400"
+                        }
+                    },
+                    "500": {
+                        "schema": {
+                            "$ref": "#/definitions/500"
+                        }
+                    }
+                }
+            }
+        },
+        "/bill-payment/validate-payment-reservation-detail": {
+            "post": {
+                "tags": [
+                    "Bill Payment"
+                ],
+                "summary": "bill payment validate payment reservation detail",
+                "parameters": [
+                    {
+                        "name": "data",
+                        "in": "body",
+                        "schema": {
+                            "required": [
+                                "*"
+                            ],
+                            "properties": {
+                                "reservationNumber": {
+                                    "type": "string",
+                                    "example": "RN-202007000011"
+                                },
+                                "amount": {
+                                    "type": "number",
+                                    "example": 150
+                                },
+                                "currencyCode": {
+                                    "type": "string",
+                                    "example": "USD"
+                                },
+                                "settlementCurrencyCode": {
+                                    "type": "string",
+                                    "example": "PHP"
+                                },
+                                "settlementAmount": {
+                                    "type": "number",
+                                    "example": 8250
+                                },
+                                "agentRefNo": {
+                                    "type": "string",
+                                    "example": "A1234"
+                                }
+                            }
+                        }
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "schema": {
+                            "properties": {
+                                "status": "200",
+                                "message": "success",
+                                "data": {
+                                    "statusCode": "",
+                                    "data": ""
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "schema": {
+                            "$ref": "#/definitions/400"
+                        }
+                    },
+                    "500": {
+                        "schema": {
+                            "$ref": "#/definitions/500"
+                        }
+                    }
+                }
+            }
+        },
+        "/bill-payment/process-payment-reservation-detail": {
+            "post": {
+                "tags": [
+                    "Bill Payment"
+                ],
+                "summary": "bill payment process payment reservation detail",
+                "parameters": [
+                    {
+                        "name": "data",
+                        "in": "body",
+                        "schema": {
+                            "required": [
+                                "*"
+                            ],
+                            "properties": {
+                                "reservationNumber": {
+                                    "type": "string",
+                                    "example": "RN-202007000011"
+                                },
+                                "amount": {
+                                    "type": "number",
+                                    "example": 150
+                                },
+                                "currencyCode": {
+                                    "type": "string",
+                                    "example": "USD"
+                                },
+                                "settlementCurrencyCode": {
+                                    "type": "string",
+                                    "example": "PHP"
+                                },
+                                "settlementAmount": {
+                                    "type": "number",
+                                    "example": 8250
+                                },
+                                "agentRefNo": {
+                                    "type": "string",
+                                    "example": "A1234"
+                                }
+                            }
+                        }
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "schema": {
+                            "properties": {
+                                "status": "200",
+                                "message": "success",
+                                "data": {
+                                    "statusCode": "",
+                                    "data": ""
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "schema": {
+                            "$ref": "#/definitions/400"
+                        }
+                    },
+                    "500": {
+                        "schema": {
+                            "$ref": "#/definitions/500"
+                        }
+                    }
+                }
+            }
+        },
+        "/bill-payment/reservation-payment-inquiry": {
+            "post": {
+                "tags": [
+                    "Bill Payment"
+                ],
+                "summary": "bill payment reservation payment inquiry",
+                "parameters": [
+                    {
+                        "name": "data",
+                        "in": "body",
+                        "schema": {
+                            "required": [
+                                "*"
+                            ],
+                            "properties": {
+                                "reservationNumber": {
+                                    "type": "string",
+                                    "example": "RN-202007000011"
+                                },
+                                "amount": {
+                                    "type": "number",
+                                    "example": 150
+                                },
+                                "currencyCode": {
+                                    "type": "string",
+                                    "example": "USD"
+                                },
+                                "settlementCurrencyCode": {
+                                    "type": "string",
+                                    "example": "PHP"
+                                },
+                                "settlementAmount": {
+                                    "type": "number",
+                                    "example": 8250
+                                },
+                                "agentRefNo": {
+                                    "type": "string",
+                                    "example": "A1234"
+                                }
+                            }
+                        }
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "schema": {
+                            "properties": {
+                                "status": "200",
+                                "message": "success",
+                                "data": {
+                                    "statusCode": "",
+                                    "data": ""
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "schema": {
+                            "$ref": "#/definitions/400"
+                        }
+                    },
+                    "500": {
+                        "schema": {
+                            "$ref": "#/definitions/500"
+                        }
+                    }
+                }
+            }
+        },
+        "/bill-payment/pull-transaction-detail": {
+            "post": {
+                "tags": [
+                    "Bill Payment"
+                ],
+                "summary": "bill payment pull transaction detail",
+                "parameters": [
+                    {
+                        "name": "data",
+                        "in": "body",
+                        "schema": {
+                            "required": [
+                                "*"
+                            ],
+                            "properties": {
+                                "code": {
+                                    "type": "number",
+                                    "example": 106
+                                },
+                                "transactionNumber": {
+                                    "type": "string",
+                                    "example": "PRP-13202007-000006"
+                                },
+                                "referenceNumber": {
+                                    "type": "string",
+                                    "example": "RP-202007000001"
+                                },
+                                "agentRefNo": {
+                                    "type": "string",
+                                    "example": "A1234"
+                                }
+                            }
+                        }
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "schema": {
+                            "properties": {
+                                "status": "200",
+                                "message": "success",
+                                "data": {
+                                    "statusCode": "",
+                                    "data": ""
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "schema": {
+                            "$ref": "#/definitions/400"
+                        }
+                    },
+                    "500": {
+                        "schema": {
+                            "$ref": "#/definitions/500"
+                        }
+                    }
+                }
+            }
+        },
+        "/bill-payment/validate-billing": {
+            "post": {
+                "tags": [
+                    "Bill Payment"
+                ],
+                "summary": "bill payment validate billing",
+                "parameters": [
+                    {
+                        "name": "data",
+                        "in": "body",
+                        "schema": {
+                            "required": [
+                                "*"
+                            ],
+                            "properties": {
+                                "billerCode": {
+                                    "type": "string",
+                                    "example": "C15"
+                                },
+                                "accountNumber": {
+                                    "type": "string",
+                                    "example": "816218000"
+                                },
+                                "identifier": {
+                                    "type": "string",
+                                    "example": "Juan Dela Cruz"
+                                },
+                                "amount": {
+                                    "type": "number",
+                                    "example": 120
+                                },
+                                "agentRefNo": {
+                                    "type": "string",
+                                    "example": "A1234"
+                                }
+                            }
+                        }
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "schema": {
+                            "properties": {
+                                "status": "200",
+                                "message": "success",
+                                "data": {
+                                    "statusCode": "",
+                                    "data": ""
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "schema": {
+                            "$ref": "#/definitions/400"
+                        }
+                    },
+                    "500": {
+                        "schema": {
+                            "$ref": "#/definitions/500"
+                        }
+                    }
+                }
+            }
+        },
+        "/bill-payment/process-billing": {
+            "post": {
+                "tags": [
+                    "Bill Payment"
+                ],
+                "summary": "bill payment process billing",
+                "parameters": [
+                    {
+                        "name": "data",
+                        "in": "body",
+                        "schema": {
+                            "required": [
+                                "*"
+                            ],
+                            "properties": {
+                                "billerCode": {
+                                    "type": "string",
+                                    "example": "C15"
+                                },
+                                "accountNumber": {
+                                    "type": "string",
+                                    "example": "816218000"
+                                },
+                                "identifier": {
+                                    "type": "string",
+                                    "example": "Juan Dela Cruz"
+                                },
+                                "amount": {
+                                    "type": "number",
+                                    "example": 120
+                                },
+                                "agentRefNo": {
+                                    "type": "string",
+                                    "example": "A1234"
+                                }
+                            }
+                        }
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "schema": {
+                            "properties": {
+                                "status": "200",
+                                "message": "success",
+                                "data": {
+                                    "statusCode": "",
+                                    "data": ""
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "schema": {
+                            "$ref": "#/definitions/400"
+                        }
+                    },
+                    "500": {
+                        "schema": {
+                            "$ref": "#/definitions/500"
                         }
                     }
                 }
             }
         }
     },
-
-
-
-
-
-
-
-
-
-
-
-
-    
-    "definitions":{
-       "201": {
-           "type": "object",
-           "properties": {
-               "message": {
-                   "type": "string",
-                   "example":"Success"
+    "definitions": {
+        "201": {
+            "type": "object",
+            "properties": {
+                "message": {
+                    "type": "string",
+                    "example": "Success"
                 },
-               "status": {
-                   "type": "integer",
-                   "example": 201
-               }
-           }
-       },
+                "status": {
+                    "type": "integer",
+                    "example": 201
+                }
+            }
+        },
         "400": {
             "type": "object",
             "properties": {
-                "responseCode": {"type": "number", "example": 131},
-                "message": {"type": "string", "example": "Duplicate transaction"},
-                "description": {"type": "string", "example": "Applicable date has an overlapping payment"},
-                "status": {"type": "number", "example": 400}
+                "responseCode": {
+                    "type": "number",
+                    "example": 131
+                },
+                "message": {
+                    "type": "string",
+                    "example": "Duplicate transaction"
+                },
+                "description": {
+                    "type": "string",
+                    "example": "Applicable date has an overlapping payment"
+                },
+                "status": {
+                    "type": "number",
+                    "example": 400
+                }
             }
         },
         "500": {
@@ -1411,8 +3593,8 @@
             "properties": {
                 "message": {
                     "type": "string",
-                    "example":"Internal server error!"
-                 },
+                    "example": "Internal server error!"
+                },
                 "status": {
                     "type": "integer",
                     "example": 500
@@ -1420,5 +3602,4 @@
             }
         }
     }
-    
- }
+}
